@@ -1,0 +1,67 @@
+.nav-bar {
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 10px;
+  }
+  
+  .nav-bar a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px 40px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .nav-bar h1 {
+    float: left;
+    color: #f2f2f2;
+    text-align: left;
+    padding: 0px 40px;
+    text-decoration: none;
+    font-size: 24px;
+  }
+
+  .nav-bar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .active {
+    background-color: #ddd;
+    color: rgba(37, 0, 80, 0.315);
+  }
+
+  .projects-slide {
+    margin-top: 10px;
+    height: 1000px;
+  }
+
+  .projects-slide-title {
+    width: 35%;
+    height: 50%;
+    float: left;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .projects-slide-title h1{
+    color: #f2f2f2;
+  }
+  .projects-slide-title p{
+    color: #aaaaaa;
+  }
+
+  .projects-slide-pictures {
+    width: 64%;
+    height: 50%;
+    float: right;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 10px;
+  }
+
+  body {
+      background-color: rgb(0, 0, 0)
+  }

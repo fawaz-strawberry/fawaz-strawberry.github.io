@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="stock_data.js"></script>
-    <script src="projects.js">console.log(site_data);
-    console.log("hello");</script>
+    <script language="Javascript" src="stock_data.js"></script>
+    <script language="Javascript" src="projects.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -58,9 +57,9 @@ function slideShow(isRight)
         {
             currentSlide = 0;
         }
-        title = site_data.Projects[currentSlide].title
-        description = "descriptions/" + site_data.Projects[currentSlide].description
-        image = "images/" + site_data.Projects[currentSlide].image
+        title = site_data.Projects[currentSlide].Title
+        description = site_data.Projects[currentSlide].Description
+        image = "images/" + site_data.Projects[currentSlide].Image
     }
     else
     {
@@ -69,9 +68,9 @@ function slideShow(isRight)
         {
             currentSlide = site_data.Projects.length - 1;
         }
-        title = site_data.Projects[currentSlide].title
-        description = "descriptions/" + site_data.Projects[currentSlide].description
-        image = "images/" + site_data.Projects[currentSlide].image
+        title = site_data.Projects[currentSlide].Title
+        description = site_data.Projects[currentSlide].Description
+        image = "images/" + site_data.Projects[currentSlide].Image
     }
 
 
@@ -83,17 +82,29 @@ function slideShow(isRight)
     myInfo.innerHTML = "";
     myMedia.innerHTML = "";
 
+    console.log(image)
+
     myTitle = document.createElement("h1")
     myTitle.innerHTML = title;
     myDescription = document.createElement("p")
     myDescription.innerHTML = description;
     myImage = document.createElement("img")
     myImage.setAttribute("src", image)
+    myImage.setAttribute("style", "width: 60%; height: 100%;")
+
+    myLeft = document.createElement("button")
+    myLeft.setAttribute("onclick", "slideShow(false)")
+    myLeft.setAttribute("style", "float:left; height:100%; width: 20%;")
+
+    myRight = document.createElement("button")
+    myRight.setAttribute("onclick", "slideShow(true)")
+    myRight.setAttribute("style", "float:right; height:100%; width:20%;")
 
     myInfo.appendChild(myTitle)
     myInfo.appendChild(myDescription)
+    myMedia.appendChild(myLeft)
     myMedia.appendChild(myImage)
-
+    myMedia.appendChild(myRight)
 }
 
 function startUp()

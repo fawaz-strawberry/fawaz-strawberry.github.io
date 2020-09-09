@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="stock_data.js"></script>
+    <script src="projects.js">console.log(site_data);
+    console.log("hello");</script>
     <title>Document</title>
 </head>
 <body>
@@ -21,11 +23,11 @@
     </div>
 
     <div class="projects-slide">
-        <div class="projects-slide-title">
+        <div class="projects-slide-title" id="project-information">
             <h1>Custom Projects</h1>
             <p>a bunch of lorem ipsum stuff</p>
         </div>
-        <div class="projects-slide-pictures">
+        <div class="projects-slide-pictures" id="project-pictures">
             <p>dab</p>
         </div>
     </div>
@@ -34,10 +36,70 @@
 
 <script>
 
+var currentSlide = -1;
+
 function updateTicker()
 {
     document.getElementById('my-ticker').innerHTML = myTickers;
 }
 
-updateTicker()
+
+function slideShow(isRight)
+{
+
+    title=""
+    description=""
+    image=""
+
+    if(isRight)
+    {
+        currentSlide += 1
+        if(currentSlide >= site_data.Projects.length)
+        {
+            currentSlide = 0;
+        }
+        title = site_data.Projects[currentSlide].title
+        description = "descriptions/" + site_data.Projects[currentSlide].description
+        image = "images/" + site_data.Projects[currentSlide].image
+    }
+    else
+    {
+        currentSlide -= 1;
+        if(currentSlide < 0)
+        {
+            currentSlide = site_data.Projects.length - 1;
+        }
+        title = site_data.Projects[currentSlide].title
+        description = "descriptions/" + site_data.Projects[currentSlide].description
+        image = "images/" + site_data.Projects[currentSlide].image
+    }
+
+
+    //insert transition here
+
+    myInfo = document.getElementById("project-information")
+    myMedia = document.getElementById("project-pictures")
+
+    myInfo.innerHTML = "";
+    myMedia.innerHTML = "";
+
+    myTitle = document.createElement("h1")
+    myTitle.innerHTML = title;
+    myDescription = document.createElement("p")
+    myDescription.innerHTML = description;
+    myImage = document.createElement("img")
+    myImage.setAttribute("src", image)
+
+    myInfo.appendChild(myTitle)
+    myInfo.appendChild(myDescription)
+    myMedia.appendChild(myImage)
+
+}
+
+function startUp()
+{
+    updateTicker()
+    slideShow(true)
+}
+startUp();
 </script>

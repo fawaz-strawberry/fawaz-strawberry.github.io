@@ -85,6 +85,14 @@
     width: 75%;
   }
 
+  .proj-title {
+    color: white;
+    width: 90%;
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
   body {
       background-color: rgb(27, 27, 27);
       font-family: arial;
@@ -94,6 +102,9 @@
     display: none;
   }
 
+  #gameScreen {
+    border: 1px solid blue;
+  }
 
   @media only screen and (max-width: 600px) {
     .nav-bar marquee{
@@ -156,5 +167,12 @@
       margin-right: 10px;
     }
       
+    .proj-title {
+      color: white;
+      width: 90%;
+      padding-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
 
   }

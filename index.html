@@ -48,6 +48,9 @@
 
 
 
+    <div class="VideoGame">
+        <canvas id="gameScreen" width="900" height="500"></canvas>
+    </div>
 
 
 
@@ -56,6 +59,131 @@
 </html>
 
 <script>
+
+//Game Stuffffffffffffff
+
+    myCanvas = document.getElementById("gameScreen")
+    ctx = myCanvas.getContext("2d");
+
+    ballX = 20;
+    ballY = 20;
+    ballDx = 1;
+    ballDy = 1;
+    ballRadius = 15;
+
+
+    playerHeight = 10;
+    playerWidth = 80;
+    playerX = myCanvas.width / 2;
+    playerY = myCanvas.height - playerHeight;
+    playerDx = 0;
+    playerDy = 0;
+    playerSpeed = 3;
+
+    rightPressed = false;
+    leftPressed = false;
+
+    function drawBall()
+    {
+        ctx.beginPath();
+        ctx.arc(ballX, ballY, 15, 0, Math.PI*2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+
+        ballX += ballDx;
+        ballY += ballDy;
+
+        if(ballX + ballRadius + ballDx >= myCanvas.width || ballX - ballRadius + ballDx <= 0)
+        {
+            ballDx *= -1;
+            ballDx *= (1 + .1 * Math.random())
+        }
+        if((ballY + ballRadius + ballDy >= myCanvas.height - playerHeight && ballX < playerX + playerWidth/2 && ballX > playerX - playerWidth/2) || ballY - ballRadius + ballDy <= 0)
+        {
+            ballDy *= -1;
+            ballDy *= (1 + .1 * Math.random())
+
+            if(ballY + ballRadius + ballDy >= myCanvas.height - playerHeight)
+            {
+                ballY = myCanvas.height - playerHeight
+            }
+        }
+
+
+
+        console.log("BallX: " + ballX)
+        console.log("BallY: " + ballY)
+    }
+
+    function drawPlayer()
+    {
+        ctx.beginPath();
+        ctx.rect(playerX, playerY,  playerWidth, playerHeight);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+        
+        if(rightPressed)
+        {
+            playerDx = playerSpeed
+        }
+        else if(leftPressed)
+        {
+            playerDx = -playerSpeed
+        }
+        else
+        {
+            playerDx = 0
+        }
+
+        if(playerX + playerWidth + playerDx < myCanvas.width && playerX - playerWidth + playerDx >= 0)
+        {
+            playerX += playerDx
+        }
+    }
+
+    function draw()
+    {
+        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+        drawBall()
+        drawPlayer()
+    }
+    setInterval(draw, 10);
+
+function keyDownHandler(e)
+{
+    if(e.key == "Right" || e.key == "ArrowRight")
+    {
+        rightPressed = true;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft")
+    {
+        leftPressed = true;
+    }
+}
+
+function keyUpHandler(e)
+{
+    if(e.key == "Right" || e.key == "ArrowRight")
+    {
+        rightPressed = false;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft")
+    {
+        leftPressed = false;
+    }
+}
+
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+
+
+
+
+//////////////////////////////////////////////////////////
+
 
 var currentSlide = 0;
 
@@ -116,4 +244,5 @@ function incrementSlide()
 
 
 startUp();
+
 </script>

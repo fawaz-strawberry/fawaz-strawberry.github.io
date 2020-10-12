@@ -6,10 +6,24 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script language="Javascript" src="stock_data.js"></script>
     <script language="Javascript" src="projects.js"></script>
-    <title>Document</title>
+    <title>Fawaz's Portfolio</title>
 </head>
 <body>
+    <div class="nav-dropdown">
+        <img class="menu-icon" src="images/hamburgerIcon.png" onclick="openMenu()">
+        <div class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            
+            
+            
+        </div>
+    </div>
+
     <div class="nav-bar">
+
         <h1 style="width:20%;">Fawaz Mujtaba</h1>
         <marquee id="my-ticker" behavior="scroll" direction="left" scrollamount="10"></marquee>
         <div style="width:20%; display: inline;">
@@ -22,21 +36,28 @@
         
     </div>
 
-    <div class="projects-slide">
-        <div class="projects-slide-title" id="project-information">
-            <h1>Custom Projects</h1>
-            <p>a bunch of lorem ipsum stuff</p>
-        </div>
-        <div class="projects-slide-pictures" id="project-pictures">
-            <p>dab</p>
-        </div>
+
+
+
+    <div class="slide-show">
+        <img class="proj-image" id="image-info" src="images/cider_truck.png">
+        <h3 class="proj-title" id="title-info">Cider Truck</h3>
+        <p class="proj-div" id="info"></p>
     </div>
+
+
+
+
+
+
+
+
 </body>
 </html>
 
 <script>
 
-var currentSlide = -1;
+var currentSlide = 0;
 
 function updateTicker()
 {
@@ -44,74 +65,55 @@ function updateTicker()
 }
 
 
-function slideShow(isRight)
-{
-
-    title=""
-    description=""
-    image=""
-
-    if(isRight)
-    {
-        currentSlide += 1
-        if(currentSlide >= site_data.Projects.length)
-        {
-            currentSlide = 0;
-        }
-        title = site_data.Projects[currentSlide].Title
-        description = site_data.Projects[currentSlide].Description
-        image = "images/" + site_data.Projects[currentSlide].Image
-    }
-    else
-    {
-        currentSlide -= 1;
-        if(currentSlide < 0)
-        {
-            currentSlide = site_data.Projects.length - 1;
-        }
-        title = site_data.Projects[currentSlide].Title
-        description = site_data.Projects[currentSlide].Description
-        image = "images/" + site_data.Projects[currentSlide].Image
-    }
-
-
-    //insert transition here
-
-    myInfo = document.getElementById("project-information")
-    myMedia = document.getElementById("project-pictures")
-
-    myInfo.innerHTML = "";
-    myMedia.innerHTML = "";
-
-    console.log(image)
-
-    myTitle = document.createElement("h1")
-    myTitle.innerHTML = title;
-    myDescription = document.createElement("p")
-    myDescription.innerHTML = description;
-    myImage = document.createElement("img")
-    myImage.setAttribute("src", image)
-    myImage.setAttribute("style", "width: 60%; height: 100%;")
-
-    myLeft = document.createElement("button")
-    myLeft.setAttribute("onclick", "slideShow(false)")
-    myLeft.setAttribute("style", "float:left; height:100%; width: 20%;")
-
-    myRight = document.createElement("button")
-    myRight.setAttribute("onclick", "slideShow(true)")
-    myRight.setAttribute("style", "float:right; height:100%; width:20%;")
-
-    myInfo.appendChild(myTitle)
-    myInfo.appendChild(myDescription)
-    myMedia.appendChild(myLeft)
-    myMedia.appendChild(myImage)
-    myMedia.appendChild(myRight)
-}
 
 function startUp()
 {
     updateTicker()
-    slideShow(true)
 }
+
+function openMenu()
+{
+    console.log("dab")
+    myElement = document.getElementsByClassName("nav-menu")[0];
+    console.log(myElement)
+    if(myElement.style.display === "block")
+    {
+        myElement.style.display = "none"
+    }
+    else
+    {
+        myElement.style.display = "block"
+    }
+    
+}
+
+function displaySlide()
+{
+    
+    imageElement = document.getElementById("image-info")
+    titleElement = document.getElementById("title-info")
+    infoElement = document.getElementById("info")
+
+    imageElement.setAttribute("src", "images/" + site_data.Projects[currentSlide].Image)
+    titleElement.innerHTML = site_data.Projects[currentSlide].Title
+    infoElement.innerHTML = site_data.Projects[currentSlide].Description
+    currentSlide += 1;
+}
+
+function incrementSlide()
+{
+    console.log("Called")
+    if(currentSlide >= (site_data.Projects.length))
+    {
+        currentSlide = 0
+    }
+    displaySlide()
+
+    setTimeout(incrementSlide, 1000);
+    
+} incrementSlide();
+
+
+
 startUp();
 </script>

@@ -12,10 +12,9 @@
     <div class="nav-dropdown">
         <img class="menu-icon" src="images/hamburgerIcon.png" onclick="openMenu()">
         <div class="nav-menu">
-            <a href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <a href="index.html">Home</a>
+            <a href="live.html">Demos</a>
+            <a href="social.html">Socials</a>
             
             
             
@@ -27,10 +26,9 @@
         <h1 style="width:20%;">Fawaz Mujtaba</h1>
         <marquee id="my-ticker" behavior="scroll" direction="left" scrollamount="10"></marquee>
         <div style="width:20%; display: inline;">
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="#news">News</a>
-            <a href="#home">Home</a>
+            <a href="social.html">Socials</a>
+            <a href="live.html">Demos</a>
+            <a href="index.html">Home</a>
         </div>
         
         
@@ -74,8 +72,8 @@
 
     playerHeight = 10;
     playerWidth = 80;
-    playerX = myCanvas.width / 2;
-    playerY = myCanvas.height - playerHeight;
+    playerX = myCanvas.width / 2 - playerWidth/ 2;
+    playerY = myCanvas.height - playerHeight - 5;
     playerDx = 0;
     playerDy = 0;
     playerSpeed = 3;
@@ -99,7 +97,15 @@
             ballDx *= -1;
             ballDx *= (1 + .1 * Math.random())
         }
-        if((ballY + ballRadius + ballDy >= myCanvas.height - playerHeight && ballX < playerX + playerWidth/2 && ballX > playerX - playerWidth/2) || ballY - ballRadius + ballDy <= 0)
+
+        if(ballY >= myCanvas.height)
+        {
+            ballX = Math.random()*(myCanvas.width - 40) + 20
+            ballY = 20
+            ballDx = (Math.random() * 2) + 1
+            ballDy = (Math.random() * 2) + 1
+        }
+        else if((ballY + ballRadius + ballDy >= myCanvas.height - playerHeight && ballX < playerX + playerWidth && ballX > playerX) || ballY - ballRadius + ballDy <= 0)
         {
             ballDy *= -1;
             ballDy *= (1 + .1 * Math.random())
@@ -112,8 +118,9 @@
 
 
 
-        console.log("BallX: " + ballX)
-        console.log("BallY: " + ballY)
+
+        // console.log("BallX: " + ballX)
+        // console.log("BallY: " + ballY)
     }
 
     function drawPlayer()
@@ -130,14 +137,14 @@
         }
         else if(leftPressed)
         {
-            playerDx = -playerSpeed
+            playerDx = playerSpeed * -1
         }
         else
         {
             playerDx = 0
         }
 
-        if(playerX + playerWidth + playerDx < myCanvas.width && playerX - playerWidth + playerDx >= 0)
+        if(playerX + playerWidth + playerDx < myCanvas.width && playerX + playerDx >= 0)
         {
             playerX += playerDx
         }
@@ -239,7 +246,7 @@ function incrementSlide()
 
     setTimeout(incrementSlide, 1000);
     
-} incrementSlide();
+} //incrementSlide();
 
 
 

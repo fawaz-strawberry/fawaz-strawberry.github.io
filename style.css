@@ -82,13 +82,16 @@
   .proj-p {
     color: white;
     float: right;
+    font-size: 30px;
     width: 75%;
   }
 
   .proj-title {
     color: white;
-    width: 90%;
-    padding-top: 10px;
+    width: 75%;
+    float: right;
+    font-size: 40px;
+    padding-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
   }
@@ -104,6 +107,14 @@
 
   #gameScreen {
     border: 1px solid blue;
+    float: right;
+    margin: 20px;
+  }
+
+  .slide-show {
+    height: auto;
+    padding-bottom: 500px;
+    padding-top: 50px;
   }
 
   @media only screen and (max-width: 600px) {

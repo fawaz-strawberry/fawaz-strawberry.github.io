@@ -101,13 +101,24 @@
       font-family: arial;
   }
 
+  .whoAmI{
+    color: white;
+    font-size: 18px;
+    width: 60%;
+    margin: 0 auto;
+    line-height: 40px;
+  }
+
   .nav-dropdown {
     display: none;
   }
 
+  .VideoGame{
+    text-align: center;
+  }
+
   #gameScreen {
-    border: 1px solid blue;
-    float: right;
+    border: 2px solid blue;
     margin: 20px;
   }
 

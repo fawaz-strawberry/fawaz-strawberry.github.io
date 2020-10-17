@@ -109,6 +109,14 @@
     line-height: 40px;
   }
 
+  .caption{
+    color: white;
+    font-size: 12px;
+    width: 40%;
+    margin: 0 auto;
+
+  }
+
   .nav-dropdown {
     display: none;
   }

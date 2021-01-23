@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fawaz_strawberry/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/fawaz_strawberry/static/js/main.b4d96534.chunk.js",
+    "main.js.map": "/fawaz_strawberry/static/js/main.b4d96534.chunk.js.map",
+    "runtime-main.js": "/fawaz_strawberry/static/js/runtime-main.d66c7431.js",
+    "runtime-main.js.map": "/fawaz_strawberry/static/js/runtime-main.d66c7431.js.map",
+    "static/js/2.47de7776.chunk.js": "/fawaz_strawberry/static/js/2.47de7776.chunk.js",
+    "static/js/2.47de7776.chunk.js.map": "/fawaz_strawberry/static/js/2.47de7776.chunk.js.map",
+    "static/js/3.22fea307.chunk.js": "/fawaz_strawberry/static/js/3.22fea307.chunk.js",
+    "static/js/3.22fea307.chunk.js.map": "/fawaz_strawberry/static/js/3.22fea307.chunk.js.map",
+    "index.html": "/fawaz_strawberry/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/fawaz_strawberry/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.47de7776.chunk.js.LICENSE.txt": "/fawaz_strawberry/static/js/2.47de7776.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/fawaz_strawberry/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d66c7431.js",
+    "static/js/2.47de7776.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.b4d96534.chunk.js"
+  ]
+}

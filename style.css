@@ -193,6 +193,7 @@
     float: left;
     margin-top: 50px;
     text-align: center;
+    width: 49%;
   }
 
   .Current h2{
@@ -205,7 +206,7 @@
     color: #d10000;
     font-size: 20px;
     text-align: center;
-    margin-left: ;
+    margin-left: 240px;
   }
 
   .Current-Image{

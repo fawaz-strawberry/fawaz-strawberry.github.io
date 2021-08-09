@@ -24,13 +24,16 @@
 
     <div class="nav-bar">
 
-        <h1 onclick="location.href='index.html';" style="width:15%;">Fawaz Mujtaba</h1>
-        <marquee id="my-ticker" behavior="scroll" direction="left" scrollamount="10"></marquee>
-        <div style="width:20%; display: inline;">
+        <h1 onclick="location.href='index.html';">Fawaz Mujtaba</h1>
+        <!-- <marquee id="my-ticker" behavior="scroll" direction="left" scrollamount="10"></marquee> -->
+        <div class="hyperlinks" style="width:20%; display: inline;">
+            <a href="demo.html">Projects</a>
             <a href="mujtaba_resume.pdf">Resume</a>
-            <a href="social.html">Socials</a>
-            <a href="demo.html">Demos</a>
-            <a href="index.html">Home</a>
+        </div>
+        <div class="socials">
+            <a href="instagram.com"><img style="width: 20px; height: 20px;" src="images/ig_logo.png"></a>
+            <a href="twitter.com"><img style="width: 20px; height: 20px;" src="images/twitter_logo.png"></a>
+            <a href="youtube.com"><img style="width: 30px; height: 20px;" src="images/youtube_logo.png"></a>
         </div>
         
         
@@ -48,35 +51,41 @@
 
 
 
+    <div class="Glass-Panel">
+        <div class="VideoGame">
 
-    <div class="VideoGame">
-
-        <div class="whoAmI">
-            <h2>Who am I?</h2>
-            <p>
-                My name is Fawaz Mujtaba and I have been a programmer since middle school.
-                My main areas of interest are in Neural Networks and AI but i enjoy a lot of other parts of Computer Science
-                and Engineering too. These include(but are not limited to) Video Game Development, REST APIs, Server Control,
-                App Development, and Computer Graphics. 
-            </p>
-            <p>
-
-            </p>
+            <video id="vidScreen" width="1000" height="545" autoplay loop controls>
+                <source src="pongAI.mp4" type="video/mp4">
+            </video>
+            <!-- <canvas id="gameScreen" width="900" height="500"></canvas> -->
         </div>
-        <video id="vidScreen" width="900" hieght="500" autoplay loop controls>
-            <source src="pongAI.mp4" type="video/mp4">
-
-        </video>
-        <div class="caption">
-            <p>
-                Above is an example of two Pong paddles trained to
-                anticipate the location of the incoming ball before
-                it arrives at it's destination
+        <div class="Description-Home">
+            <h2>A Skilled and Versatile Engineer</h2>
+            <p>I'm capable and determined with skills ranging from AI, Neural Networks, and Data Science
+                to Computer Graphics, Game Development, and 3D Modeling.
             </p>
+            <button >View Projects</button>
         </div>
-        <!-- <canvas id="gameScreen" width="900" height="500"></canvas> -->
     </div>
 
+    <div class="Glass-Panel">
+        <div class="Current-Image">
+            <img src="images/valoran_example.jpg" width="1000" height="545";>
+        </div>
+        <div class="Current">
+            <h2>Valorant Gun Controller</h2>
+            <p>Currently working on developing a new controller for Valorant allowing the user
+                to aim more naturally and use their fully body's movements as input to the game.
+            </p>
+            <br>
+            <p>Video Release Date: Aug. 21st</p>
+        </div>
+
+    </div>
+    <div class="Footer">
+        Thanks for Visiting
+        Last Update: 8/8/2021
+    </div>
 
     <!-- <iframe src="https://i.simmer.io/@BubbleMagic45/cider-truck" style="width:960px;height:600px"></iframe>
     <iframe src="https://i.simmer.io/@BubbleMagic45/racingai" style="width:960px;height:600px"></iframe>
@@ -224,7 +233,7 @@ var currentSlide = 0;
 
 function updateTicker()
 {
-    document.getElementById('my-ticker').innerHTML = myTickers;
+    // document.getElementById('my-ticker').innerHTML = myTickers;
 }
 
 

@@ -1,12 +1,15 @@
 .nav-bar {
     overflow: hidden;
-    background-color: #333;
-    border-radius: 10px;
+    background-color: rgba(70, 70, 70, .2);
     white-space: nowrap;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url("images/shine-33946.png");
+    background-repeat: no-repeat;
+    background-position: right;
   }
   
   .nav-bar a {
-    float: right;
+    float: left;
     color: #f2f2f2;
     text-align: center;
     padding: 20px 20px;
@@ -14,9 +17,17 @@
     font-size: 17px;
   }
   
+  .hyperlinks {
+    float: left
+  }
+
+  .socials {
+    float: right
+  }
+
   .nav-bar h1 {
     float: left;
-    color: #f2f2f2;
+    color: #d10000;
     text-align: left;
     padding: 0px 40px;
     text-decoration: none;
@@ -35,8 +46,11 @@
   }
 
   .nav-bar a:hover {
-    background-color: rgb(161, 0, 0);
+    background-color:rgba(231, 0, 0, 0.2);
     color: rgb(255, 255, 255);
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
   }
 
   .active {
@@ -98,7 +112,7 @@
 
   body {
       background-color: rgb(27, 27, 27);
-      font-family: arial;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
   }
 
   .whoAmI{
@@ -129,11 +143,91 @@
 
   }
 
+  .Description-Home{
+    color: #d10000;
+    float: right;
+    justify-content: center;
+    margin-top: 50px;
+    margin-right: -30px;
+    font-size: 40px;
+  }
+
+  .Description-Home p{
+    width: 60%;
+    color: white;
+    font-size: 20px;
+  }
+
+  .Description-Home button{
+    background-color: #d10000;
+    color: white;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    text-decoration: none;
+    border: none;
+  }
+
+  .Description-Home button:hover{
+    background-color: #a51a1a6e;
+    color: white;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+  }
+
   .nav-dropdown {
     display: none;
   }
 
   .VideoGame{
+    float: left;
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 100px;
+    
+  }
+
+  .Current{
+    float: left;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .Current h2{
+    font-size: 60px;
+    color: white
+  }
+
+  .Current p{
+    width: 60%;
+    color: #d10000;
+    font-size: 20px;
+    text-align: center;
+    margin-left: ;
+  }
+
+  .Current-Image{
+    float: right;
+    margin-right: 100px;
+    margin-top: 20px;
+  }
+
+  .Glass-Panel{
+    width: 100%;
+    height: 580px;
+    background-color: rgba(199 199 199 / 20%);
+    margin-top: 10px;
+  }
+
+  .Footer{
+    width: 100%;
+    height: 100px;
+    background-color: rgba(199 199 199 / 0%);
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
   }
 

@@ -253,6 +253,105 @@
     padding-top: 50px;
   }
 
+  .BlogHolder {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 50px;
+    width: 1200px;
+    display: block;
+    background-color: rgba(0, 0, 0,.2);
+  }
+
+  .BlogPost {
+    position: relative;
+    width: 1100px;
+    display: block;
+    padding: 20px;;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: rgba(180, 180, 180,.2);
+  }
+
+  .BlogImage {
+    float: left;
+    margin-right: 15px;
+    width: 500px;
+    height: 350px;
+  }
+
+  .BlogTitle {
+    float: left;
+    color: red;
+    margin:auto;
+    font-size: 60px;
+    width: 50%;
+  }
+
+  .BlogDescription {
+    padding-top: 10px;
+    float: left;
+    color: white;
+    margin: auto;
+    font-size: 20px;
+    width: 50%;
+  }
+
+  .BlogButton{
+    float: left;
+    color: red;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    width: 25%;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid;
+    border-width: thin;
+    border-color: red;
+    color: red;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+  }
+
+  .BlogButton:hover{
+    background-color: rgba(175, 0, 0, 0.466);
+    border: solid;
+    border-width: thin;
+    border-color: white;
+    color: white;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+  }
+
+  .BlogDate{
+    padding-top: 10px;
+    float: left;
+    color: gray;
+    margin: auto;
+    font-size: 15px;
+    width: 50%;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   @media only screen and (max-width: 600px) {
     .nav-bar marquee{
       display: none;

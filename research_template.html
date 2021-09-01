@@ -44,7 +44,7 @@
         </div> -->
     </div>
 
-
+    <div class="Footer">Thansk for Visiting!</div>
 </body>
 </html>
 
@@ -99,7 +99,14 @@
                 room.src = "images/" + door
                 king.appendChild(room)
             }
-
+            if(key === "game")
+            {
+                room = document.createElement("iframe")
+                //<iframe src="https://i.simmer.io/@BubbleMagic45/cider-truck" style="width:960px;height:600px;border:0"></iframe>
+                room.classList.add("Research-Game")
+                room.src = door
+                king.appendChild(room)
+            }
         }
 
     }

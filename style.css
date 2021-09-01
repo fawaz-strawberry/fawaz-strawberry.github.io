@@ -116,6 +116,30 @@
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
   }
 
+  .sliding-background{
+    background: url("images/Vector_2677.jpg") repeat-x;
+    height: 100%;
+    width: 100%;
+
+    animation: slide 60s linear infinite;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    
+  }
+
+  @keyframes slide{
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+    transform: translate3d(-9054px, 0, 0);
+    }
+  }
+
   .whoAmI{
     color: white;
     font-size: 18px;
@@ -236,7 +260,7 @@
     height: 100px;
     background-color: rgba(199 199 199 / 0%);
     color: white;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 10px;
     text-align: center;
     float: right;
@@ -343,6 +367,7 @@
     margin: auto;
     
     text-align: center;
+    align-content: center;
   }
   .Research-Text{
     margin-top: 40px;
@@ -367,6 +392,12 @@
   .Research-Image{
     width: 70%;
     margin-top: 40px;
+  }
+  .Research-Game{
+    width:960px;
+    height:600px;
+    margin-top: 20px;
+    border:0
   }
 
 

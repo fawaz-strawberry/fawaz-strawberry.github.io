@@ -1,43 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script language="Javascript" src="stock_data.js"></script>
+    <script language="Javascript" src="projects.js"></script>
+
+
     <title>Fawaz's Portfolio</title>
-    <!-- Add the fade out and fade in script here imported from assets/startup_script.js-->
-    <script src="assets/startup_script.js"></script>
 </head>
 <body>
-<div class="small-title">
-    <a href="index.html">Fawaz's Portfolio</a>
-</div>
-    <header>
-        <h1 class="deep-glassy-text">Fawaz's Virtual Home</h1>
-    </header>
-    <main class="content">
-        <ul class="main-menu">
-            <li class="deep-glassy-text"><a href="projects.html">Projects</a></li>
-            <li class="deep-glassy-text"><a href="blog.html">Blog</a></li>
-            <li class="deep-glassy-text"><a href="about.html">About</a></li>
-            <div class="featured-projects">
-<a href="html/MostWanted.html"><li><img src="./assets/CopCouldNotCareLess.jpg" alt="Need For Speed: Most Wanted "></li><h2>Need For Speed: Most Wanted </h2></a>
-</div>
-        </ul>
-    </main>
-    
-    <h3>^ I'm gonna add some cool threejs here one day. ^</h3>
+    <!-- <div class="nav-dropdown">
+        <img class="menu-icon" src="images/hamburgerIcon.png" onclick="openMenu()">
+        <div class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="demo.html">Demos</a>
+            <a href="social.html">Socials</a>
+            <a href="mujtaba_resume.pdf">Resume</a>
+            
+            
+            
+        </div>
+    </div> -->
 
-    <footer>
-        <ul class="footer-menu">
-            <li><a href="https://www.instagram.com/fawaz.strawberry/">Instagram</a></li>
-            <li><a href="https://github.com/fawaz-strawberry">Github</a></li>
-            <li><a href="https://www.linkedin.com/in/fawaz-mujtaba/">Linkedin</a></li>
-            <li><a href="mujtaba_resume.pdf">Resume</a></li>
-        </ul>
-    </footer>
+
+    
+    <div class="nav-bar">
+
+        <h1 onclick="location.href='index.html';">Fawaz Mujtaba</h1>
+        <!-- <marquee id="my-ticker" behavior="scroll" direction="left" scrollamount="10"></marquee> -->
+        <div class="hyperlinks" style="width:20%; display: inline;">
+            <a href="projects.html">Projects</a>
+            <a href="mujtaba_resume_tesla_ai.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        </div>
+        <div style="color: white; width: 20%; float: left; margin-top: 20px;">
+            Site rebuild in progress... There may be bugs
+        </div>
+        <div class="socials">
+            <a href="https://www.instagram.com/fawaz.strawberry/"target="_blank" rel="noopener noreferrer"><img style="width: 20px; height: 20px;" src="images/ig_logo.png"></a>
+            <a href="https://twitter.com/Fawaz_Strawbery/" target="_blank" rel="noopener noreferrer"><img style="width: 20px; height: 20px;" src="images/twitter_logo.png"></a>
+            <a href="https://www.youtube.com/channel/UChlh33Dta72VAta7l3Q9kCA" target="_blank" rel="noopener noreferrer"><img style="width: 30px; height: 20px;" src="images/youtube_logo.png"></a>
+        </div>
+        
+        
+        
+    </div>
+
+
+    <div class="Description-Home">
+        <h2>AI, Game Dev, and Robots</h2>
+    </div>
+    <div class="VideoGame">
+        <video id="vidScreen" width="1000" height="545" autoplay loop controls>
+            <source src="pongAI.mp4" type="video/mp4">
+        </video>
+        <!-- <canvas id="gameScreen" width="900" height="500"></canvas> -->
+    </div>
+    <div class="Description-Home">
+        <p>I'm capable and determined with skills ranging from AI, Neural Networks, and Data Science
+            to Computer Graphics, Game Development, and 3D Modeling.
+        </p>
+        <button onclick="location.href='projects.html'">View Projects</button>
+    </div>
+    <br>
+
+    <hr>
+
+    <div class="Current">
+        <h2>Valorant Gun Controller</h2>
+        <p>A new controller for Valorant allowing the user
+            to aim more naturally and use their fully body's movements as input to the game.
+        </p>
+    </div>
+    <div class="Current-Image">
+        <iframe width="896" height="504" src="https://www.youtube.com/embed/C3Lo0oJPQvE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+
+    <div class="Footer">
+        Thanks for Visiting
+        <br>
+        Last Update: 8/29/2021
+
+    </div>
+
+    <!-- <iframe src="https://i.simmer.io/@BubbleMagic45/cider-truck" style="width:960px;height:600px"></iframe>
+    <iframe src="https://i.simmer.io/@BubbleMagic45/racingai" style="width:960px;height:600px"></iframe>
+    <iframe src="https://i.simmer.io/@BubbleMagic45/breakout" style="width:960px;height:600px"></iframe> -->
 </body>
-<<<<<<< HEAD
 </html>
 
 <script>
@@ -237,6 +286,3 @@ function incrementSlide()
 startUp();
 
 </script>
-=======
-</html>
->>>>>>> 9bb03f19 (Updating with brand new website)

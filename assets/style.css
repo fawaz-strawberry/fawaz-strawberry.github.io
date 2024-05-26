@@ -1,0 +1,215 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    position: relative; /* Necessary for pseudo-element positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    transition: opacity 0.5s ease-in-out;
+    padding: 20px;
+    overflow: auto; /* Allow scrolling */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Use fixed positioning to not affect scrolling */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.1) 100%);
+    z-index: -1; /* Ensure the gradient is behind other content */
+}
+
+body::after {
+    content: "";
+    position: fixed; /* Use fixed positioning to not affect scrolling */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/background.jpg') repeat;
+    background-size: 5% 5%;
+    background-attachment: fixed; /* Keep background fixed */
+    opacity: 0.2; /* Adjust opacity for transparency effect */
+    animation: moveBackground 60s linear infinite; /* Adjust the duration for desired effect */
+    z-index: -2; /* Ensure the background image is behind the gradient */
+}
+body {
+    position: relative; /* Necessary for pseudo-element positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 20px;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.7) 80%);
+    background-attachment: fixed;
+    z-index: -1; /* Ensure the gradient is behind other content */
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/background.jpg') repeat;
+    background-size: 10% 10%;
+    background-attachment: fixed; /* Keep background fixed */
+    opacity: 0.2; /* Adjust opacity for transparency effect */
+    animation: moveBackground 60s linear infinite; /* Adjust the duration for desired effect */
+    z-index: -2; /* Ensure the background image is behind the gradient */
+}
+
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+h1 {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 100px;
+    margin-top: 40px;
+    font-family: "Anta", sans-serif;
+    margin-bottom: 20px; /* Added margin-bottom */
+}
+
+h2, h3 {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: "Anta", sans-serif;
+    margin-top: 20px; /* Added margin-top */
+}
+
+/* Main Menu Styles */
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding-top: 30px;
+}
+
+.main-menu li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.main-menu li::before {
+    content: ""; /* Necessary for the pseudo-element to be generated */
+    position: absolute;
+    left: -40px; /* Adjust based on your layout */
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg); /* Centers the triangle vertically and rotates it */
+    border-left: 15px solid transparent; /* Adjust size to your liking */
+    border-right: 15px solid transparent; /* Adjust size to your liking */
+    border-top: 15px solid red; /* The color and size of the triangle */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.main-menu li:hover::before {
+    opacity: 1; /* Show the triangle on hover */
+}
+
+.main-menu li a {
+    font-size: 80px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1.0);
+    font-weight: bold;
+    font-family: "Anta", sans-serif;
+    display: inline-block;
+}
+
+.content {
+    text-align: center;
+    flex: 1; /* Fill the remaining space */
+    width: 100%; /* Ensure content spans full width */
+    max-width: 1200px; /* Set a maximum width for better readability */
+    padding: 20px; /* Added padding for content */
+    font-family: "roboto", sans-serif;
+    font-size: 20px;
+}
+
+/* Footer Styles */
+footer {
+    border-top: 2px solid #ccc;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%; /* Ensure it spans the full width */
+}
+
+footer .footer-menu {
+    display: flex;
+    justify-content: space-around; /* Evenly space items without specifying a gap */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-menu li a {
+    text-decoration: none;
+    font-family: "Anta", sans-serif;
+    color: #000;
+    font-weight: bold;
+}
+
+img {
+    max-height: 500px;
+    max-width: 500px;
+    height: auto;
+    width: auto;
+    margin: 20px 0; /* Added margin to separate images from text */
+}
+
+.small-title {
+    position: fixed; /* Keep it fixed at the top left */
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    font-family: "Anta", sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    z-index: 1000; /* Ensure it is on top of other elements */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.small-title a {
+    text-decoration: none;
+    color: inherit;
+}

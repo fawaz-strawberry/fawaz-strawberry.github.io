@@ -22,3 +22,8 @@ document.querySelectorAll('a').forEach(link => {
 window.addEventListener('pageshow', (event) => {
 document.body.style.opacity = 1;
 });
+
+// add in jquery fix
+jQuery.htmlPrefilter = function( html ) {
+	return html;
+};

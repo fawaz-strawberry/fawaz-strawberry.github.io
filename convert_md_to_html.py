@@ -46,7 +46,7 @@ def convert_md_to_html(md_content, title, stylesheet='../assets/style.css'):
             <li><a href="https://www.instagram.com/fawaz.strawberry/">Instagram</a></li>
             <li><a href="https://github.com/fawaz-strawberry">Github</a></li>
             <li><a href="https://www.linkedin.com/in/fawaz-mujtaba/">Linkedin</a></li>
-            <li><a href="mujtaba_resume.pdf">Resume</a></li>
+            <li><a href="../mujtaba_resume.pdf">Resume</a></li>
         </ul>
     </footer>
 </body>

@@ -1,5 +1,5 @@
 # The Future of Racing Games 
-![Project Image](../assets/CopCouldNotCareLess.jpg)
+![Project Image](../assets/carJumping.png)
 
 ## Introduction
 Racing games, over the past decade have been disappointing to say the least. They haven't neccessarily been all bad games, just not very good ones. Compare that to the golden era from the 2000s and early 2010s and some might say that I've been hooked on nostalgia. I ask those people to look at the following images.

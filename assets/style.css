@@ -213,3 +213,103 @@ img {
     text-decoration: none;
     color: inherit;
 }
+/* Text wrapping and responsive typography */
+p {
+    font-size: 1.2rem;  /* Base font size */
+    line-height: 1.6;   /* Improve readability */
+    margin-bottom: 1.5rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 80px;
+    }
+    
+    h2, h3 {
+        font-size: 35px;
+    }
+    
+    .main-menu li a {
+        font-size: 60px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    img {
+        max-height: 400px;
+        max-width: 400px;
+    }
+    /* Text wrapping and responsive typography */
+    p {
+        font-size: 1.2rem;  /* Base font size */
+        line-height: 1.6;   /* Improve readability */
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 50px;
+    }
+    
+    h2, h3 {
+        font-size: 30px;
+    }
+    
+    .main-menu li a {
+        font-size: 40px;
+    }
+    
+    .content {
+        padding: 10px;
+    }
+    
+    img {
+        max-height: 300px;
+        max-width: 300px;
+    }
+    p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    footer {
+        flex-direction: column;
+    }
+
+    footer .footer-menu {
+        flex-direction: column;
+    }
+
+    footer .footer-menu li {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+    
+    h2, h3 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    .main-menu li a {
+        font-size: 30px;
+    }
+
+    img {
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+    .small-title {
+        font-size: 14px;
+    }
+}

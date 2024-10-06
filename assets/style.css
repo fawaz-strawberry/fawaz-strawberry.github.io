@@ -326,11 +326,11 @@ p {
     }
 
     img {
-        display: block;   /* Make the image behave like a block-level element */
-        width: 100%;       /* Set the width as a percentage of the container or screen */
+        display: block;     /* Make the image behave like a block-level element */
         margin: .5rem auto; /* Center the image horizontally with auto margin */
-        height: auto;
-        max-width: 90%; /* Optional: set a max size */
+        height: auto;       /* Maintain aspect ratio */
+        max-width: 100%;    /* Ensure it doesn't go beyond the screen size */
+        min-width: 200px;   /* Ensure it doesn't shrink too much on small screens */
     }
 
     .small-title {

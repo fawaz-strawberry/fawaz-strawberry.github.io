@@ -256,10 +256,10 @@ p {
     
     img {
         height: auto;
-        max-width: 50%; /* Optional: set a max size */
+        max-width: 70%; /* Optional: set a max size */
         display: block;   /* Make the image behave like a block-level element */
         width: 100%;       /* Set the width as a percentage of the container or screen */
-        margin: 20px auto; /* Center the image horizontally with auto margin */
+        margin: .5rem auto; /* Center the image horizontally with auto margin */
     }
 
 }
@@ -292,7 +292,7 @@ p {
         height: auto;
         display: block;   /* Make the image behave like a block-level element */
         width: 100%;       /* Set the width as a percentage of the container or screen */
-        margin: 20px auto; /* Center the image horizontally with auto margin */
+        margin: .5rem auto; /* Center the image horizontally with auto margin */
     }
     footer {
         flex-direction: column;
@@ -328,10 +328,9 @@ p {
     img {
         display: block;   /* Make the image behave like a block-level element */
         width: 100%;       /* Set the width as a percentage of the container or screen */
-        margin: 20px auto; /* Center the image horizontally with auto margin */
+        margin: .5rem auto; /* Center the image horizontally with auto margin */
         height: auto;
         max-width: 90%; /* Optional: set a max size */
-        align-items: center;
     }
 
     .small-title {

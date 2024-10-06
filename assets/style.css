@@ -222,12 +222,22 @@ p {
 
 /* Media Queries for Responsive Design */
 @media (max-width: 1200px) {
-    h1 {
-        font-size: 80px;
+    p {
+        font-size: 1.2rem;  /* Base font size */
+        line-height: 1.6;   /* Improve readability */
+        margin-bottom: 1.5rem;
+        text-align: justify;
     }
-    
-    h2, h3 {
-        font-size: 35px;
+
+    /* Headings and responsive typography */
+    h1 {
+        font-size: 4rem; /* For larger screens */
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
     }
     
     .main-menu li a {
@@ -238,25 +248,32 @@ p {
         padding: 15px;
     }
     
-    img {
+    /* img {
         max-height: 400px;
         max-width: 400px;
+    } */
+    
+    img {
+        width: 100%;  /* Ensure it scales to the container */
+        height: auto;
+        max-width: 500px;  /* Optional: set a max size */
+        margin: 20px 0;    /* Add spacing around the image */
     }
-    /* Text wrapping and responsive typography */
-    p {
-        font-size: 1.2rem;  /* Base font size */
-        line-height: 1.6;   /* Improve readability */
-        margin-bottom: 1.5rem;
-    }
+
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 50px;
+        font-size: 3rem;
     }
-    
-    h2, h3 {
-        font-size: 30px;
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.4;
     }
     
     .main-menu li a {
@@ -268,12 +285,10 @@ p {
     }
     
     img {
-        max-height: 300px;
-        max-width: 300px;
-    }
-    p {
-        font-size: 1rem;
-        line-height: 1.4;
+        width: 100%;  /* Ensure it scales to the container */
+        height: auto;
+        max-width: 300px;  /* Optional: set a max size */
+        margin: 20px 0;    /* Add spacing around the image */
     }
     footer {
         flex-direction: column;
@@ -290,12 +305,13 @@ p {
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 40px;
+        font-size: 2rem;
     }
-    
-    h2, h3 {
-        font-size: 25px;
+
+    h2 {
+        font-size: 1.5rem;
     }
+
     p {
         font-size: 0.9rem;
         line-height: 1.4;
@@ -305,8 +321,10 @@ p {
     }
 
     img {
-        max-height: 200px;
-        max-width: 200px;
+        width: 100%;  /* Ensure it scales to the container */
+        height: auto;
+        max-width: 200px;  /* Optional: set a max size */
+        margin: 20px 0;    /* Add spacing around the image */
     }
 
     .small-title {

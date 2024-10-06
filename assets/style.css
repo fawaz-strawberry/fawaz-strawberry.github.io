@@ -254,10 +254,11 @@ p {
     } */
     
     img {
-        width: 100%;  /* Ensure it scales to the container */
         height: auto;
-        max-width: 500px;  /* Optional: set a max size */
-        margin: 20px 0;    /* Add spacing around the image */
+        max-width: 50%; /* Optional: set a max size */
+        display: block;   /* Make the image behave like a block-level element */
+        width: 50%;       /* Set the width as a percentage of the container or screen */
+        margin: 20px auto; /* Center the image horizontally with auto margin */
     }
 
 }
@@ -285,10 +286,11 @@ p {
     }
     
     img {
-        width: 100%;  /* Ensure it scales to the container */
+        max-width: 70%; /* Optional: set a max size */
         height: auto;
-        max-width: 300px;  /* Optional: set a max size */
-        margin: 20px 0;    /* Add spacing around the image */
+        display: block;   /* Make the image behave like a block-level element */
+        width: 50%;       /* Set the width as a percentage of the container or screen */
+        margin: 20px auto; /* Center the image horizontally with auto margin */
     }
     footer {
         flex-direction: column;
@@ -321,10 +323,11 @@ p {
     }
 
     img {
-        width: 100%;  /* Ensure it scales to the container */
+        display: block;   /* Make the image behave like a block-level element */
+        width: 50%;       /* Set the width as a percentage of the container or screen */
+        margin: 20px auto; /* Center the image horizontally with auto margin */
         height: auto;
-        max-width: 200px;  /* Optional: set a max size */
-        margin: 20px 0;    /* Add spacing around the image */
+        max-width: 90%; /* Optional: set a max size */
     }
 
     .small-title {

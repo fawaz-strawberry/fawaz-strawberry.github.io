@@ -98,19 +98,19 @@ body::after {
 h1 {
     text-align: center;
     color: rgba(0, 0, 0, 0.8);
-    font-size: 100px;
-    margin-top: 40px;
+    font-size: 3rem;
+    margin-top: 2rem;
     font-family: "Anta", sans-serif;
-    margin-bottom: 20px; /* Added margin-bottom */
+    margin-bottom: 1rem; /* Added margin-bottom */
 }
 
 h2, h3 {
     text-align: center;
     color: rgba(0, 0, 0, 0.8);
-    font-size: 40px;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     font-family: "Anta", sans-serif;
-    margin-top: 20px; /* Added margin-top */
+    margin-top: 1rem; /* Added margin-top */
 }
 
 /* Main Menu Styles */
@@ -146,7 +146,7 @@ h2, h3 {
 }
 
 .main-menu li a {
-    font-size: 80px;
+    font-size: 1.5rem;
     text-decoration: none;
     color: rgba(0, 0, 0, 1.0);
     font-weight: bold;

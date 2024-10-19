@@ -228,16 +228,16 @@ p {
     position: relative;
 }
 
+/* Remove fixed width and height from .card */
 .card {
     position: relative;
-    width: 200px;
-    height: 200px;
     margin: 20px;
     border-radius: 15px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.7);
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    animation: float 10s ease-in-out infinite;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
     cursor: pointer;
 }
 
@@ -262,23 +262,30 @@ p {
     transition: transform 0.3s ease;
 }
 
-/* Floating animation */
-@keyframes float {
-    0% {
-        transform: translate(0, 0);
-    }
-    25% {
-        transform: translate(10px, -10px);
-    }
-    50% {
-        transform: translate(0, -20px);
-    }
-    75% {
-        transform: translate(-10px, -10px);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
+/* Floating animations */
+@keyframes float1 {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(10px, -10px); }
+    50% { transform: translate(-10px, 20px); }
+    75% { transform: translate(10px, -15px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes float2 {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-15px, 10px); }
+    40% { transform: translate(15px, -20px); }
+    60% { transform: translate(-10px, 15px); }
+    80% { transform: translate(10px, -10px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes float3 {
+    0% { transform: translate(0, 0); }
+    30% { transform: translate(20px, -15px); }
+    60% { transform: translate(-20px, 15px); }
+    90% { transform: translate(15px, -20px); }
+    100% { transform: translate(0, 0); }
 }
 
 /* Modal styles */
@@ -288,17 +295,19 @@ p {
     z-index: 10000;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow: auto;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.8);
 }
 
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 90%;
-    max-height: 90%;
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 90vh;
 }
 
 .modal .caption {
@@ -311,7 +320,7 @@ p {
 /* Close button */
 .close {
     position: absolute;
-    top: 30px;
+    top: 20px;
     right: 30px;
     color: white;
     font-size: 40px;
@@ -324,6 +333,7 @@ p {
 .close:focus {
     color: #bbb;
 }
+
 
 /* Media Queries for Responsive Design */
 @media (max-width: 50em) { /* Equivalent to ~600px - Mid-size devices */

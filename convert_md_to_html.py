@@ -1,12 +1,15 @@
 import markdown
 import os
 import yaml
+from PIL import Image
+import random
 
 # Directories
 MD_DIR = 'markdown'
 HTML_DIR = 'html'
 ASSETS_DIR = 'assets'
 GALLERY_DIR = 'gallery'
+
 
 # Read the original index.html and projects.html content
 with open('index_template.html', 'r') as f:
@@ -108,8 +111,39 @@ def main():
     for image in gallery_images:
         caption = captions.get(image, '')  # Get the caption for the image, default to empty string if not found
         image_src = os.path.join(GALLERY_DIR, image)
+
+        # Get image dimensions
+        image_path = os.path.join(GALLERY_DIR, image)
+        with Image.open(image_path) as img:
+            width, height = img.size
+
+        # Apply a random scale factor
+        scale_factor = random.uniform(0.3, 0.7)  # Scale between 30% to 70%
+        card_width = int(width * scale_factor)
+        card_height = int(height * scale_factor)
+
+        # Limit maximum size
+        max_card_size = 400
+        card_width = min(card_width, max_card_size)
+        card_height = min(card_height, max_card_size)
+
+        # Generate random animation properties
+        animation_duration = random.uniform(8, 15)  # Between 8s to 15s
+        animation_delay = random.uniform(0, 5)      # Between 0s to 5s
+        animation_names = ['float1', 'float2', 'float3']
+        animation_name = random.choice(animation_names)
+
+        # Inline styles for each card
+        style = f"""
+            width: {card_width}px;
+            height: {card_height}px;
+            animation-name: {animation_name};
+            animation-duration: {animation_duration}s;
+            animation-delay: {animation_delay}s;
+        """
+
         card_html = f'''
-        <div class="card" onclick="openModal('{image_src}', '{caption}')">
+        <div class="card" onclick="openModal('{image_src}', `{caption}`)" style="{style}">
             <img src="{image_src}" alt="{caption}">
             <div class="caption">{caption}</div>
         </div>
@@ -120,7 +154,6 @@ def main():
 
     with open('gallery.html', 'w') as f:
         f.write(updated_gallery_html)
-
 
 
     print(all_projects)

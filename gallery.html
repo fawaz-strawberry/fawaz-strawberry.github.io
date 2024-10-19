@@ -8,6 +8,34 @@
     <title>Fawaz's Portfolio</title>
     <!-- Add the fade out and fade in script here imported from assets/startup_script.js-->
     <script src="assets/startup_script.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("modalImage");
+        var modalCaption = document.getElementById("modalCaption");
+
+        // Function to open the modal
+        function openModal(imageSrc, captionText) {
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+            modalCaption.innerHTML = captionText;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Close the modal when the user clicks on <span> (x)
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="small-title">
@@ -20,9 +48,20 @@
     The following is a collection of my drawings :)
 
     <main class="content">
-	    <div class="all-photos"></div>
+	    <div class="all-photos">
+        <div class="card" onclick="openModal('gallery/RaceMap.jpg', 'This is a very awesome race map that I made myself')">
+            <img src="gallery/RaceMap.jpg" alt="This is a very awesome race map that I made myself">
+            <div class="caption">This is a very awesome race map that I made myself</div>
+        </div>
+        </div>
     </main>
-
+    
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="caption" id="modalCaption"></div>
+    </div>
 
     <footer>
         <ul class="footer-menu">

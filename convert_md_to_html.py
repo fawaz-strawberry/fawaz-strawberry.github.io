@@ -1,5 +1,6 @@
 import markdown
 import os
+import yaml
 
 # Directories
 MD_DIR = 'markdown'
@@ -98,7 +99,28 @@ def main():
             featured_projects += project_entry
         all_projects += project_entry
 
-    #Add all gallery images to gallery.html
+    # Generate gallery.html
+    with open('captions.yaml', 'r') as f:
+        captions = yaml.safe_load(f)
+
+    gallery_cards = ''
+
+    for image in gallery_images:
+        caption = captions.get(image, '')  # Get the caption for the image, default to empty string if not found
+        image_src = os.path.join(GALLERY_DIR, image)
+        card_html = f'''
+        <div class="card" onclick="openModal('{image_src}', '{caption}')">
+            <img src="{image_src}" alt="{caption}">
+            <div class="caption">{caption}</div>
+        </div>
+        '''
+        gallery_cards += card_html
+
+    updated_gallery_html = GALLERY_HTML_TEMPLATE.replace('<div class="all-photos"></div>', f'<div class="all-photos">{gallery_cards}</div>')
+
+    with open('gallery.html', 'w') as f:
+        f.write(updated_gallery_html)
+
 
 
     print(all_projects)

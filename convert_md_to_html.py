@@ -5,6 +5,7 @@ import os
 MD_DIR = 'markdown'
 HTML_DIR = 'html'
 ASSETS_DIR = 'assets'
+GALLERY_DIR = 'gallery'
 
 # Read the original index.html and projects.html content
 with open('index_template.html', 'r') as f:
@@ -12,6 +13,9 @@ with open('index_template.html', 'r') as f:
 
 with open('projects_template.html', 'r') as f:
     PROJECTS_HTML_TEMPLATE = f.read()
+
+with open('gallery_template.html', 'r') as f:
+    GALLERY_HTML_TEMPLATE = f.read()
 
 def convert_md_to_html(md_content, title, stylesheet='../assets/style.css'):
     # Remove the title from the Markdown content
@@ -73,6 +77,7 @@ def main():
     featured_projects = ''
     all_projects = ''
     md_files = [f for f in os.listdir(MD_DIR) if f.endswith('.md')]
+    gallery_images = [f for f in os.listdir(GALLERY_DIR) if (f.endswith('.png') or f.endswith('.jpg'))]
 
     for md_file in md_files:
         with open(os.path.join(MD_DIR, md_file), 'r') as f:
@@ -92,7 +97,10 @@ def main():
         if len(featured_projects.split('<a ')) <= 3:
             featured_projects += project_entry
         all_projects += project_entry
-    
+
+    #Add all gallery images to gallery.html
+
+
     print(all_projects)
     update_main_pages(featured_projects, all_projects)
 

@@ -4,7 +4,6 @@ import math
 import random
 import markdown
 import yaml
-from PIL import Image
 
 # Directories
 MD_DIR = 'markdown'         # Directory containing Markdown files for projects
@@ -25,15 +24,6 @@ with open('gallery_template.html', 'r') as f:
 def generate_keyframes(animation_name, max_translate=15, max_rotate=2, steps=10):
     """
     Generates CSS keyframes for floating animations.
-
-    Parameters:
-    - animation_name (str): Name of the animation.
-    - max_translate (float): Maximum translation in pixels.
-    - max_rotate (float): Maximum rotation in degrees.
-    - steps (int): Number of steps in the animation.
-
-    Returns:
-    - str: CSS keyframes for the animation.
     """
     keyframes = f"@keyframes {animation_name} {{\n"
     for step in range(steps + 1):
@@ -49,12 +39,6 @@ def generate_keyframes(animation_name, max_translate=15, max_rotate=2, steps=10)
 def generate_all_keyframes(num_animations=6):
     """
     Generates multiple keyframe animations.
-
-    Parameters:
-    - num_animations (int): Number of different animations to generate.
-
-    Returns:
-    - str: Combined CSS keyframes for all animations.
     """
     keyframes_css = ""
     for i in range(1, num_animations + 1):
@@ -69,10 +53,6 @@ def generate_all_keyframes(num_animations=6):
 def write_css_file(css_content, css_file_path='assets/style.css'):
     """
     Writes the combined CSS content to a file.
-
-    Parameters:
-    - css_content (str): The CSS content to write.
-    - css_file_path (str): The path to the CSS file.
     """
     with open(css_file_path, 'w') as css_file:
         css_file.write(css_content)
@@ -80,14 +60,6 @@ def write_css_file(css_content, css_file_path='assets/style.css'):
 def convert_md_to_html(md_content, title, stylesheet='../assets/style.css'):
     """
     Converts Markdown content to an HTML page.
-
-    Parameters:
-    - md_content (str): The Markdown content to convert.
-    - title (str): The title of the HTML page.
-    - stylesheet (str): The path to the CSS stylesheet.
-
-    Returns:
-    - str: The full HTML page as a string.
     """
     # Remove the title from the Markdown content to avoid duplication
     md_content_lines = md_content.split('\n')
@@ -134,10 +106,6 @@ def convert_md_to_html(md_content, title, stylesheet='../assets/style.css'):
 def update_main_pages(featured_projects, all_projects):
     """
     Updates the index.html and projects.html pages with the generated project cards.
-
-    Parameters:
-    - featured_projects (str): HTML content for the featured projects.
-    - all_projects (str): HTML content for all projects.
     """
     # Insert the featured projects into index.html
     updated_index = INDEX_HTML_TEMPLATE.replace(
@@ -160,20 +128,20 @@ def update_main_pages(featured_projects, all_projects):
 def generate_card(image_src, caption, link=None, is_gallery=False):
     """
     Generates HTML code for a project or gallery card.
-
-    Parameters:
-    - image_src (str): Path to the image source.
-    - caption (str): Caption or title for the card.
-    - link (str): URL to link the card to (for projects).
-    - is_gallery (bool): Flag to indicate if the card is for the gallery.
-
-    Returns:
-    - str: HTML code for the card.
     """
-    # Truncate caption to a maximum length
-    max_caption_length = 150  # Adjust as needed
+    # Truncate caption to a maximum length (optional)
+    max_caption_length = 100  # Adjust as needed
+    full_caption = caption
     if len(caption) > max_caption_length:
         caption = caption[:max_caption_length].rstrip() + '...'
+
+    # Adjust font size based on caption length
+    if len(caption) > 80:
+        font_size = '0.8rem'
+    elif len(caption) > 50:
+        font_size = '0.9rem'
+    else:
+        font_size = '1rem'
 
     # Generate animation properties
     animation_duration = random.uniform(50, 100)  # Longer durations
@@ -181,7 +149,7 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
     animation_names = [f'float{i}' for i in range(1, 11)]
     animation_name = random.choice(animation_names)
 
-    # Inline styles for animation only
+    # Inline styles for animation and font size
     style = f"""
         animation-name: {animation_name};
         animation-duration: {animation_duration}s;
@@ -193,26 +161,31 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         will-change: transform;
     """
 
-    # Generate card HTML without fixed widths and heights
+    # Escape single quotes in caption to prevent HTML errors
+    caption_escaped = caption.replace("'", "&#39;").replace('"', "&quot;")
+
+    # Generate card HTML
     if is_gallery:
         card_html = f'''
-        <div class="card" onclick="openModal('{image_src}', `{caption}`)" style="{style}">
-            <img class="card-image" src="{image_src}" alt="{caption}">
-            <div class="caption">{caption}</div>
+        <div class="card" onclick="openModal('{image_src}', `{full_caption}`)" style="{style}">
+            <img class="card-image" src="{image_src}" alt="{caption_escaped}">
+            <div class="caption">
+                <p class="caption-text" style="font-size: {font_size};">{caption_escaped}</p>
+            </div>
         </div>
         '''
     else:
         card_html = f'''
         <div class="card" style="{style}">
             <a href="{link}">
-                <img class="card-image" src="{image_src}" alt="{caption}">
-                <div class="caption">{caption}</div>
+                <img class="card-image" src="{image_src}" alt="{caption_escaped}">
+                <div class="caption">
+                    <p class="caption-text" style="font-size: {font_size};">{caption_escaped}</p>
+                </div>
             </a>
         </div>
         '''
     return card_html
-
-
 
 def main():
     """

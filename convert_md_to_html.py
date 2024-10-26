@@ -178,11 +178,11 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         will-change: transform;
     """
 
-    # Generate card HTML
+    # Generate card HTML with the 'card-image' class
     if is_gallery:
         card_html = f'''
         <div class="card" onclick="openModal('{image_src}', `{caption}`)" style="{style}">
-            <img src="{image_src}" alt="{caption}">
+            <img class="card-image" src="{image_src}" alt="{caption}">
             <div class="caption">{caption}</div>
         </div>
         '''
@@ -190,7 +190,7 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         card_html = f'''
         <div class="card" style="{style}">
             <a href="{link}">
-                <img src="{image_src}" alt="{caption}">
+                <img class="card-image" src="{image_src}" alt="{caption}">
                 <div class="caption">{caption}</div>
             </a>
         </div>

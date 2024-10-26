@@ -230,6 +230,7 @@ p {
 
 .card {
     position: relative;
+    width: 100%;
     margin: 20px;
     border-radius: 15px;
     overflow: hidden;
@@ -243,21 +244,85 @@ p {
     will-change: transform;
 }
 
+/* Styles for the main options on the index page */
+.main-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px; /* Adds space between the option cards */
+    margin-top: 40px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.option-card {
+    flex: 1 1 200px; /* Grow and shrink as needed, minimum width of 200px */
+    max-width: 300px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 8px rgba(0,0,0,0.15);
+}
+
+.option-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.option-card h2 {
+    font-family: "Anta", sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+/* Adjust gap between cards on smaller screens */
+@media (max-width: 600px) {
+    .main-options {
+        gap: 20px;
+    }
+}
 .card img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.2s ease; /* Faster transition for when the hover ends */
+    transition: transform 0.2s ease;
+}
+
+/* Styles specifically for images inside cards */
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease;
 }
 
 .card .caption {
+    /* Adjust positioning if necessary */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 10px;
     text-align: center;
     font-family: "Roboto", sans-serif;
     background-color: rgba(255,255,255,0.8);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
 .card:hover img {
@@ -472,15 +537,15 @@ p {
 /* Media Queries for Responsive Design */
 @media (max-width: 50em) { /* Equivalent to ~600px - Mid-size devices */
     p {
-        font-size: 1.2rem;  /* Base font size */
-        line-height: 1.6;   /* Improve readability */
+        font-size: 1.2rem;
+        line-height: 1.6;
         margin-bottom: 1.5rem;
         text-align: center;
     }
 
     /* Headings and responsive typography */
     h1 {
-        font-size: 4rem; /* For larger screens */
+        font-size: 4rem;
         margin-bottom: 2rem;
     }
 
@@ -488,26 +553,27 @@ p {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .main-menu li a {
         font-size: 60px;
     }
-    
+
     .content {
         padding: 15px;
     }
-    
-    img {
-        height: auto;
-        max-width: 70%; /* Optional: set a max size */
-        display: block;   /* Make the image behave like a block-level element */
-        width: 100%;       /* Set the width as a percentage of the container or screen */
-        margin: .5rem auto; /* Center the image horizontally with auto margin */
-    }
 
+    /* Updated image styles - target images without 'card-image' class */
+    img:not(.card-image) {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: 0.5rem auto;
+    }
 }
 
-@media (max-width: 37.5em) { /* Equivalent to ~600px - Mid-size devices */
+/* Repeat for other media queries */
+@media (max-width: 37.5em) {
     h1 {
         font-size: 3rem;
     }
@@ -521,22 +587,23 @@ p {
         line-height: 1.4;
         text-align: center;
     }
-    
+
     .main-menu li a {
         font-size: 40px;
     }
-    
+
     .content {
         padding: 10px;
     }
-    
-    img {
-        max-width: 70%; /* Optional: set a max size */
+
+    img:not(.card-image) {
         height: auto;
-        display: block;   /* Make the image behave like a block-level element */
-        width: 100%;       /* Set the width as a percentage of the container or screen */
-        margin: .5rem auto; /* Center the image horizontally with auto margin */
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: 0.5rem auto;
     }
+
     footer {
         flex-direction: column;
     }
@@ -550,7 +617,7 @@ p {
     }
 }
 
-@media (max-width: 30em) { /* Equivalent to ~480px - Small devices */
+@media (max-width: 30em) {
     h1 {
         font-size: 2rem;
     }
@@ -564,18 +631,21 @@ p {
         line-height: 1.4;
         text-align: center;
     }
+
     .main-menu li a {
         font-size: 30px;
     }
 
-    img {
-        display: block;     /* Make the image behave like a block-level element */
-        margin: .1rem auto; /* Center the image horizontally with auto margin */
-        height: auto;       /* Maintain aspect ratio */
-        max-width: 100%;    /* Ensure it doesn't go beyond the screen size */
+    img:not(.card-image) {
+        display: block;
+        margin: 0.1rem auto;
+        height: auto;
+        max-width: 100%;
     }
 
     .small-title {
         font-size: 14px;
     }
+}
+
 }

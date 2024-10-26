@@ -160,22 +160,27 @@ def update_main_pages(featured_projects, all_projects):
 def generate_card(image_src, caption, link=None, is_gallery=False):
     """
     Generates HTML code for a project or gallery card.
-    
+
     Parameters:
     - image_src (str): Path to the image source.
     - caption (str): Caption or title for the card.
     - link (str): URL to link the card to (for projects).
     - is_gallery (bool): Flag to indicate if the card is for the gallery.
-    
+
     Returns:
     - str: HTML code for the card.
     """
+    # Truncate caption to a maximum length
+    max_caption_length = 150  # Adjust as needed
+    if len(caption) > max_caption_length:
+        caption = caption[:max_caption_length].rstrip() + '...'
+
     # Generate animation properties
     animation_duration = random.uniform(50, 100)  # Longer durations
     animation_delay = random.uniform(-animation_duration, 0)  # Negative delay
     animation_names = [f'float{i}' for i in range(1, 11)]
     animation_name = random.choice(animation_names)
-    
+
     # Inline styles for animation only
     style = f"""
         animation-name: {animation_name};
@@ -187,7 +192,7 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         animation-direction: alternate;
         will-change: transform;
     """
-    
+
     # Generate card HTML without fixed widths and heights
     if is_gallery:
         card_html = f'''
@@ -206,6 +211,7 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         </div>
         '''
     return card_html
+
 
 
 def main():

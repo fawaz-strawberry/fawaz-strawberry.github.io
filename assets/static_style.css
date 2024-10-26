@@ -247,13 +247,18 @@ p {
 
 /* Adjusted Card Caption Styles */
 .card .caption {
-    padding: .9em; /* 10px / 16px */
+    padding: 0.625em; /* 10px / 16px */
     text-align: center;
     font-family: "Roboto", sans-serif;
     background-color: rgba(255,255,255,0.8);
     color: rgba(0, 0, 0, 0.85); /* Ensure caption text is visible */
     flex-shrink: 0; /* Prevent the caption from shrinking */
+    /* Add the following properties */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 
 /* Card Hover Effect */
 .card:hover img {

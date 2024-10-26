@@ -1,10 +1,10 @@
-import markdown
 import os
+import re
+import math
+import random
+import markdown
 import yaml
 from PIL import Image
-import random
-import math
-import re
 
 # Directories
 MD_DIR = 'markdown'         # Directory containing Markdown files for projects
@@ -23,6 +23,18 @@ with open('gallery_template.html', 'r') as f:
     GALLERY_HTML_TEMPLATE = f.read()
 
 def generate_keyframes(animation_name, max_translate=15, max_rotate=2, steps=10):
+    """
+    Generates CSS keyframes for floating animations.
+
+    Parameters:
+    - animation_name (str): Name of the animation.
+    - max_translate (float): Maximum translation in pixels.
+    - max_rotate (float): Maximum rotation in degrees.
+    - steps (int): Number of steps in the animation.
+
+    Returns:
+    - str: CSS keyframes for the animation.
+    """
     keyframes = f"@keyframes {animation_name} {{\n"
     for step in range(steps + 1):
         percentage = (step / steps) * 100
@@ -35,6 +47,15 @@ def generate_keyframes(animation_name, max_translate=15, max_rotate=2, steps=10)
     return keyframes
 
 def generate_all_keyframes(num_animations=6):
+    """
+    Generates multiple keyframe animations.
+
+    Parameters:
+    - num_animations (int): Number of different animations to generate.
+
+    Returns:
+    - str: Combined CSS keyframes for all animations.
+    """
     keyframes_css = ""
     for i in range(1, num_animations + 1):
         # Slightly vary the max_translate and max_rotate for each animation
@@ -46,6 +67,13 @@ def generate_all_keyframes(num_animations=6):
     return keyframes_css
 
 def write_css_file(css_content, css_file_path='assets/style.css'):
+    """
+    Writes the combined CSS content to a file.
+
+    Parameters:
+    - css_content (str): The CSS content to write.
+    - css_file_path (str): The path to the CSS file.
+    """
     with open(css_file_path, 'w') as css_file:
         css_file.write(css_content)
 
@@ -76,15 +104,15 @@ def convert_md_to_html(md_content, title, stylesheet='../assets/style.css'):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{stylesheet}">
     <title>{title}</title>
+    <link rel="stylesheet" type="text/css" href="{stylesheet}">
     <!-- Include the startup script -->
     <script src="../assets/startup_script.js"></script>
 </head>
 <body>
-<div class="small-title">
-    <a href="../index.html">Fawaz's Portfolio</a>
-</div>
+    <div class="small-title">
+        <a href="../index.html">Fawaz's Portfolio</a>
+    </div>
     <header>
         <h1>{title}</h1>
     </header>
@@ -95,7 +123,7 @@ def convert_md_to_html(md_content, title, stylesheet='../assets/style.css'):
         <ul class="footer-menu">
             <li><a href="https://www.instagram.com/fawaz.strawberry/">Instagram</a></li>
             <li><a href="https://github.com/fawaz-strawberry">Github</a></li>
-            <li><a href="https://www.linkedin.com/in/fawaz-mujtaba/">Linkedin</a></li>
+            <li><a href="https://www.linkedin.com/in/fawaz-mujtaba/">LinkedIn</a></li>
             <li><a href="../mujtaba_resume.pdf">Resume</a></li>
             <li><a href="privacypolicy.html">Privacy Policy</a></li>
         </ul>
@@ -130,6 +158,18 @@ def update_main_pages(featured_projects, all_projects):
         f.write(updated_projects)
 
 def generate_card(image_src, caption, link=None, is_gallery=False):
+    """
+    Generates HTML code for a project or gallery card.
+
+    Parameters:
+    - image_src (str): Path to the image source.
+    - caption (str): Caption or title for the card.
+    - link (str): URL to link the card to (for projects).
+    - is_gallery (bool): Flag to indicate if the card is for the gallery.
+
+    Returns:
+    - str: HTML code for the card.
+    """
     # Get image dimensions
     if os.path.exists(image_src):
         with Image.open(image_src) as img:
@@ -138,31 +178,16 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         width, height = 200, 200  # Default size if image not found
 
     # Apply a scale factor
-    if is_gallery:
-        scale_factor = random.uniform(0.5, 0.7)  # Adjusted for better visibility
-        max_card_size = 400
-    else:
-        scale_factor = random.uniform(0.5, 0.7)
-        max_card_size = 400
-
-    card_width = int(width * scale_factor)
-    card_height = int(height * scale_factor)
-
-    # Limit maximum size
-    card_width = min(card_width, max_card_size)
-    card_height = min(card_height, max_card_size)
+    scale_factor = random.uniform(0.5, 0.7)
+    max_card_size = 400  # Limit maximum size
+    card_width = min(int(width * scale_factor), max_card_size)
+    card_height = min(int(height * scale_factor), max_card_size)
 
     # Generate animation properties
     animation_duration = random.uniform(50, 100)  # Longer durations
     animation_delay = random.uniform(-animation_duration, 0)  # Negative delay
-
-    # Select from more animations
     animation_names = [f'float{i}' for i in range(1, 11)]
     animation_name = random.choice(animation_names)
-
-    # Consistent timing function and direction
-    animation_timing_function = 'ease-in-out'
-    animation_direction = 'alternate'
 
     # Inline styles for each card
     style = f"""
@@ -171,10 +196,10 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         animation-name: {animation_name};
         animation-duration: {animation_duration}s;
         animation-delay: {animation_delay}s;
-        animation-timing-function: {animation_timing_function};
+        animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
-        animation-direction: {animation_direction};
+        animation-direction: alternate;
         position: relative;
         will-change: transform;
     """
@@ -198,12 +223,11 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         '''
     return card_html
 
-
-
 def main():
     """
     Main function to generate the website pages with updated content.
-    """    # Generate the dynamic keyframes CSS
+    """
+    # Generate the dynamic keyframes CSS
     keyframes_css = generate_all_keyframes(num_animations=10)
     
     # Read the static CSS content
@@ -215,6 +239,7 @@ def main():
     
     # Write the combined CSS to the style.css file
     write_css_file(full_css, css_file_path='assets/style.css')
+
     featured_projects = ''  # HTML content for featured projects on the index page
     all_projects = ''       # HTML content for all projects on the projects page
 

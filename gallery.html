@@ -1,58 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Fawaz's Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Stylesheet -->
     <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <title>Fawaz's Portfolio</title>
-    <!-- Add the fade out and fade in script here imported from assets/startup_script.js-->
+    <!-- Include Startup Script -->
     <script src="assets/startup_script.js"></script>
     <!-- Modal Scripts -->
     <script>
-    // Function to open the modal
-    function openModal(imageSrc, captionText) {
-        var modal = document.getElementById('myModal');
-        var modalImg = document.getElementById("modalImage");
-        var modalCaption = document.getElementById("modalCaption");
-        modal.style.display = "block";
-        modalImg.src = imageSrc;
-        modalCaption.innerHTML = captionText;
-    }
+        // Function to open the modal
+        function openModal(imageSrc, captionText) {
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById("modalImage");
+            var modalCaption = document.getElementById("modalCaption");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+            modalCaption.innerHTML = captionText;
+        }
 
-    // Function to close the modal
-    function closeModal() {
-        var modal = document.getElementById('myModal');
-        modal.style.display = "none";
-    }
-
-    // Close modal when clicking outside the image
-    window.onclick = function(event) {
-        var modal = document.getElementById('myModal');
-        if (event.target == modal) {
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById('myModal');
             modal.style.display = "none";
         }
-    }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </head>
 <body>
-<div class="small-title">
-    <a href="index.html">Fawaz's Portfolio</a>
-</div>
+    <div class="small-title">
+        <a href="index.html">Fawaz's Portfolio</a>
+    </div>
     <header>
-        <h1 class="deep-glassy-text">Gallery</h1>
+        <h1>Gallery</h1>
     </header>
-
-    The following is a collection of my drawings :)
-
     <main class="content">
-	    <div class="all-photos">
+        <p>The following is a collection of my drawings :)</p>
+        <!-- Gallery Photos Section -->
+        <div class="all-photos">
         <div class="card" onclick="openModal('gallery/Chad_2024_10_17.jpg', `Free hand faster drawing of Chad, much less effort than the Rukia one but wanted to see what speed does at this moment`)" style="
         width: 400px;
         height: 400px;
-        animation-name: float8;
-        animation-duration: 70.27282774786258s;
-        animation-delay: -49.16015039901832s;
+        animation-name: float6;
+        animation-duration: 71.04122378127332s;
+        animation-delay: -4.639205119148642s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
@@ -67,9 +66,9 @@
         <div class="card" onclick="openModal('gallery/RaceMap.jpg', `This is a very awesome race map that I made myself`)" style="
         width: 400px;
         height: 400px;
-        animation-name: float3;
-        animation-duration: 95.0196640499867s;
-        animation-delay: -11.336251536370938s;
+        animation-name: float8;
+        animation-duration: 59.672977198855236s;
+        animation-delay: -46.36624866368795s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
@@ -84,9 +83,9 @@
         <div class="card" onclick="openModal('gallery/Rukia_2024_10_13.png', `This was a second attempt to copy a drawing from a screenshot from Bleach. Full color and fancy sparkles because I was tired at that point.`)" style="
         width: 400px;
         height: 400px;
-        animation-name: float3;
-        animation-duration: 78.62475586041208s;
-        animation-delay: -21.504783932423308s;
+        animation-name: float2;
+        animation-duration: 76.4616430319505s;
+        animation-delay: -24.9540765536507s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
@@ -99,11 +98,11 @@
         </div>
         
         <div class="card" onclick="openModal('gallery/Ichigo_2024_10_11.jpg', `First drawing in pursuit of becoming a better artist`)" style="
-        width: 351px;
+        width: 313px;
         height: 400px;
-        animation-name: float5;
-        animation-duration: 94.59461998546823s;
-        animation-delay: -32.51252352402313s;
+        animation-name: float7;
+        animation-duration: 99.5812348816143s;
+        animation-delay: -46.03373769009975s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
@@ -116,19 +115,17 @@
         </div>
         </div>
     </main>
-    
-    <!-- Modal -->
+    <!-- Modal Structure -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImage">
         <div class="caption" id="modalCaption"></div>
     </div>
-
     <footer>
         <ul class="footer-menu">
             <li><a href="https://www.instagram.com/fawaz.strawberry/">Instagram</a></li>
             <li><a href="https://github.com/fawaz-strawberry">Github</a></li>
-            <li><a href="https://www.linkedin.com/in/fawaz-mujtaba/">Linkedin</a></li>
+            <li><a href="https://www.linkedin.com/in/fawaz-mujtaba/">LinkedIn</a></li>
             <li><a href="mujtaba_resume.pdf">Resume</a></li>
             <li><a href="privacypolicy.html">Privacy Policy</a></li>
         </ul>

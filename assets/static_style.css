@@ -29,7 +29,7 @@ body {
     justify-content: space-between;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 1.25em; /* 20px / 16px */
     opacity: 0; /* Initially transparent for transition effect */
     transition: opacity 0.5s ease-in-out;
     overflow: auto; /* Allows scrolling */
@@ -66,7 +66,7 @@ body::after {
 /* Keyframes for Background Animation */
 @keyframes moveBackground {
     0% { background-position: 0 0; }
-    100% { background-position: 1000px 0; } /* Adjust movement distance for subtle motion */
+    100% { background-position: 62.5em 0; } /* 1000px / 16px */
 }
 
 /* Typography Styles */
@@ -94,23 +94,23 @@ h2, h3 {
     align-items: center;
     list-style-type: none;
     margin: 0;
-    padding-top: 30px;
+    padding-top: 1.875em; /* 30px / 16px */
 }
 
 .main-menu li {
     position: relative;
-    margin-left: 20px;
+    margin-left: 1.25em; /* 20px / 16px */
 }
 
 .main-menu li::before {
     content: ""; /* Necessary for the pseudo-element to be generated */
     position: absolute;
-    left: -40px; /* Adjust based on your layout */
+    left: -2.5em; /* -40px / 16px */
     top: 50%;
     transform: translateY(-50%) rotate(-90deg); /* Centers the triangle vertically and rotates it */
-    border-left: 15px solid transparent; /* Adjust size to your liking */
-    border-right: 15px solid transparent; /* Adjust size to your liking */
-    border-top: 15px solid red; /* The color and size of the triangle */
+    border-left: 0.9375em solid transparent; /* 15px / 16px */
+    border-right: 0.9375em solid transparent; /* 15px / 16px */
+    border-top: 0.9375em solid red; /* The color and size of the triangle */
     opacity: 0; /* Start invisible */
     transition: opacity 0.3s ease; /* Smooth transition for the hover effect */
 }
@@ -133,16 +133,16 @@ h2, h3 {
     text-align: center;
     flex: 1; /* Fill the remaining space */
     width: 100%; /* Ensure content spans full width */
-    max-width: 1200px; /* Set a maximum width for better readability */
-    padding: 20px; /* Added padding for content */
+    max-width: 75em; /* 1200px / 16px */
+    padding: 1.25em; /* 20px / 16px */
     font-family: "Roboto", sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px / 16px */
 }
 
 /* Footer Styles */
 footer {
-    border-top: 2px solid #ccc;
-    padding: 20px 0;
+    border-top: 0.125em solid #ccc; /* 2px / 16px */
+    padding: 1.25em 0; /* 20px / 16px */
     text-align: center;
     width: 100%; /* Ensure it spans the full width */
 }
@@ -164,26 +164,26 @@ footer .footer-menu li a {
 
 /* Image Styles */
 img {
-    max-height: 500px;
-    max-width: 500px; /* Optional: set a max size */
+    max-height: 31.25em; /* 500px / 16px */
+    max-width: 31.25em; /* 500px / 16px */
     height: auto;
     width: auto;
-    margin: 20px 0; /* Added margin to separate images from text */
+    margin: 1.25em 0; /* 20px / 16px */
 }
 
 /* Small Title Styles */
 .small-title {
     position: fixed; /* Keep it fixed at the top left */
-    top: 10px;
-    left: 10px;
-    font-size: 18px;
+    top: 0.625em; /* 10px / 16px */
+    left: 0.625em; /* 10px / 16px */
+    font-size: 1.125rem; /* 18px / 16px */
     font-family: "Anta", sans-serif;
     color: rgba(0, 0, 0, 0.8);
     z-index: 1000; /* Ensure it is on top of other elements */
     background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    padding: 0.3125em 0.625em; /* 5px / 16px and 10px / 16px */
+    border-radius: 0.3125em; /* 5px / 16px */
+    box-shadow: 0px 0px 0.3125em rgba(0, 0, 0, 0.3); /* 5px / 16px */
 }
 
 .small-title a {
@@ -211,46 +211,53 @@ p {
 /* Card Styles */
 .card {
     position: relative;
-    margin: 20px;
-    border-radius: 15px;
+    margin: 1.25em; /* 20px / 16px */
+    border-radius: 0.9375em; /* 15px / 16px */
     overflow: hidden;
     background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 0.625em rgba(0,0,0,0.2); /* 10px / 16px */
     cursor: pointer;
     /* Animation properties are set inline */
     will-change: transform;
-    flex: 1 1 300px; /* Allow cards to grow and shrink, base width 300px */
-    max-width: 400px; /* Maximum width for cards */
+    flex: 1 1 calc(33.333% - 2.5em); /* Adjusted for consistent sizing, margin accounted */
+    max-width: 25em; /* 400px / 16px */
+    min-width: 15.625em; /* 250px / 16px */
+    aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
+    display: flex;
+    flex-direction: column;
+}
+
+/* New CSS rule for the <a> tag inside .card */
+.card a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none; /* Remove underline from link text */
+    color: inherit; /* Inherit text color */
 }
 
 /* Ensure images fill their containers */
 .card img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.2s ease;
+    flex-grow: 1; /* Allow image to grow and fill available space */
 }
 
-.card .card-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-/* Card Caption Styles */
+/* Adjusted Card Caption Styles */
 .card .caption {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
+    padding: 0.625em; /* 10px / 16px */
     text-align: center;
     font-family: "Roboto", sans-serif;
     background-color: rgba(255,255,255,0.8);
+    color: rgba(0, 0, 0, 0.85); /* Ensure caption text is visible */
+    flex-shrink: 0; /* Prevent the caption from shrinking */
 }
 
 /* Card Hover Effect */
 .card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 0.3s ease;
 }
 
@@ -260,27 +267,27 @@ p {
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
-    gap: 40px; /* Adds space between the option cards */
-    margin-top: 40px;
+    gap: 2.5em; /* 40px / 16px */
+    margin-top: 2.5em; /* 40px / 16px */
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 /* Option Card Styles */
 .option-card {
-    flex: 1 1 200px; /* Grow and shrink as needed, minimum width of 200px */
-    max-width: 300px;
-    height: 120px;
+    flex: 1 1 12.5em; /* 200px / 16px */
+    max-width: 18.75em; /* 300px / 16px */
+    height: 7.5em; /* 120px / 16px */
     background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    border-radius: 0.9375em; /* 15px / 16px */
+    box-shadow: 0px 0.25em 0.375em rgba(0,0,0,0.1); /* 4px and 6px / 16px */
     overflow: hidden;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .option-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 8px rgba(0,0,0,0.15);
+    transform: translateY(-0.3125em); /* -5px / 16px */
+    box-shadow: 0px 0.375em 0.5em rgba(0,0,0,0.15); /* 6px and 8px / 16px */
 }
 
 .option-card a {
@@ -327,16 +334,16 @@ p {
     text-align: center;
     color: white;
     font-size: 1.2em;
-    margin-top: 10px;
+    margin-top: 0.625em; /* 10px / 16px */
 }
 
 /* Close Button Styles */
 .close {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 1.25em; /* 20px / 16px */
+    right: 1.875em; /* 30px / 16px */
     color: white;
-    font-size: 40px;
+    font-size: 2.5rem; /* 40px / 16px */
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
@@ -348,42 +355,18 @@ p {
 }
 
 /* Media Queries for Responsive Design */
+
+/* Breakpoints converted to em units based on 16px = 1em */
+
 /* Medium Devices */
-@media (max-width: 800px) {
-    .main-options {
-        gap: 19px;
-    }
-
-    h1 {
-        font-size: 4rem;
-        margin-bottom: 2rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .main-menu li a {
-        font-size: 60px;
-    }
-
-    .content {
-        padding: 15px;
-    }
-
-    .content-image,
-    img:not(.card-image) {
-        height: auto;
-        max-width: 70%;
-        display: block;
-        width: 100%;
-        margin: 0.5rem auto;
+@media (max-width: 56.25em) { /* 900px / 16px */
+    .card {
+        flex: 1 1 calc(50% - 2.5em); /* Two cards per row */
     }
 }
 
 /* Small Devices */
-@media (max-width: 600px) {
+@media (max-width: 37.5em) { /* 600px / 16px */
     h1 {
         font-size: 3rem;
     }
@@ -403,7 +386,7 @@ p {
     }
 
     .content {
-        padding: 10px;
+        padding: 0.625em; /* 10px / 16px */
     }
 
     .content-image,
@@ -416,8 +399,9 @@ p {
     }
 
     .card {
-        flex: 1 1 100%; /* Cards take full width on small screens */
+        flex: 1 1 calc(100% - 2.5em); /* One card per row */
         max-width: none;
+        min-width: auto;
     }
 
     footer {
@@ -429,12 +413,12 @@ p {
     }
 
     footer .footer-menu li {
-        margin-bottom: 10px;
+        margin-bottom: 0.625em; /* 10px / 16px */
     }
 }
 
 /* Extra Small Devices */
-@media (max-width: 480px) {
+@media (max-width: 30em) { /* 480px / 16px */
     h1 {
         font-size: 2rem;
     }
@@ -463,6 +447,6 @@ p {
     }
 
     .small-title {
-        font-size: 14px;
+        font-size: 0.875rem; /* 14px / 16px */
     }
 }

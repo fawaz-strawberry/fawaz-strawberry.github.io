@@ -103,8 +103,8 @@ def convert_md_to_html(md_content, title, stylesheet='../assets/style.css'):
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{stylesheet}">
     <!-- Include the startup script -->
     <script src="../assets/startup_script.js"></script>
@@ -170,29 +170,14 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
     Returns:
     - str: HTML code for the card.
     """
-    # Get image dimensions
-    if os.path.exists(image_src):
-        with Image.open(image_src) as img:
-            width, height = img.size
-    else:
-        width, height = 200, 200  # Default size if image not found
-
-    # Apply a scale factor
-    scale_factor = random.uniform(0.5, 0.7)
-    max_card_size = 400  # Limit maximum size
-    card_width = min(int(width * scale_factor), max_card_size)
-    card_height = min(int(height * scale_factor), max_card_size)
-
     # Generate animation properties
     animation_duration = random.uniform(50, 100)  # Longer durations
     animation_delay = random.uniform(-animation_duration, 0)  # Negative delay
     animation_names = [f'float{i}' for i in range(1, 11)]
     animation_name = random.choice(animation_names)
 
-    # Inline styles for each card
+    # Inline styles for animation only
     style = f"""
-        width: {card_width}px;
-        height: {card_height}px;
         animation-name: {animation_name};
         animation-duration: {animation_duration}s;
         animation-delay: {animation_delay}s;
@@ -200,11 +185,10 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
         animation-direction: alternate;
-        position: relative;
         will-change: transform;
     """
 
-    # Generate card HTML with the 'card-image' class
+    # Generate card HTML without fixed widths and heights
     if is_gallery:
         card_html = f'''
         <div class="card" onclick="openModal('{image_src}', `{caption}`)" style="{style}">
@@ -271,14 +255,19 @@ def main():
             f.write(html_content)
 
         # Extract the first image from the Markdown content as the thumbnail
-        first_image_line = md_content.split('\n')[1]
-        if '(' in first_image_line and ')' in first_image_line:
-            first_image = first_image_line.split('(')[1].split(')')[0]
-        else:
-            first_image = 'default_thumbnail.png'  # Use a default image if none found
+        md_lines = md_content.split('\n')
+        first_image = None
+        for line in md_lines:
+            match = re.search(r'!\[.*\]\((.*)\)', line)
+            if match:
+                first_image = match.group(1)
+                break
 
-        # Adjust the image source path
-        image_src = first_image.replace('../', './')
+        if first_image:
+            # Adjust the image source path
+            image_src = first_image.replace('../', './')
+        else:
+            image_src = 'default_thumbnail.png'  # Use a default image if none found
 
         # Generate the project card
         card_html = generate_card(image_src, title, link=html_file, is_gallery=False)

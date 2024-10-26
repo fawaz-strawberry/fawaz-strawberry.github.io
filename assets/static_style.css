@@ -199,8 +199,8 @@ p {
     text-align: center;
 }
 
-/* Gallery Styles */
-.all-photos {
+/* Gallery and Card Container Styles */
+.card-column, .all-photos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -211,18 +211,47 @@ p {
 /* Card Styles */
 .card {
     position: relative;
-    width: 100%;
     margin: 20px;
     border-radius: 15px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.7);
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     cursor: pointer;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-    animation-direction: alternate;
+    /* Animation properties are set inline */
     will-change: transform;
+    flex: 1 1 300px; /* Allow cards to grow and shrink, base width 300px */
+    max-width: 400px; /* Maximum width for cards */
+}
+
+/* Ensure images fill their containers */
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.card .card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Card Caption Styles */
+.card .caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(255,255,255,0.8);
+}
+
+/* Card Hover Effect */
+.card:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 /* Main Options Styles on Index Page */
@@ -236,6 +265,7 @@ p {
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
+/* Option Card Styles */
 .option-card {
     flex: 1 1 200px; /* Grow and shrink as needed, minimum width of 200px */
     max-width: 300px;
@@ -269,82 +299,6 @@ p {
     text-align: center;
     margin: 0;
     color: rgba(0, 0, 0, 0.85);
-}
-
-/* Card Image Styles */
-.card .card-image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    transition: transform 0.2s ease;
-}
-
-.card img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.2s ease;
-}
-
-/* Card Caption Styles */
-.card .caption {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    background-color: rgba(255,255,255,0.8);
-}
-
-/* Card Hover Effect */
-.card:hover img {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
-/* Card Column Styles */
-.card-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.card-column .card {
-    position: relative;
-    margin: 20px;
-    width: 80%;  /* Adjust width as needed */
-    max-width: 400px;
-    border-radius: 15px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    cursor: pointer;
-}
-
-.card-column .card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.card-column .card .caption {
-    padding: 10px;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    background-color: rgba(255,255,255,0.8);
-    width: 100%;
-}
-
-.card-column .card:hover img {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
 }
 
 /* Modal Styles */
@@ -395,20 +349,13 @@ p {
 
 /* Media Queries for Responsive Design */
 /* Medium Devices */
-@media (max-width: 50em) { /* Equivalent to ~800px */
-    p {
-        font-size: 1.2rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-
+@media (max-width: 800px) {
     .main-options {
         gap: 19px;
     }
 
     h1 {
-        font-size: 4rem; /* For larger screens */
+        font-size: 4rem;
         margin-bottom: 2rem;
     }
 
@@ -416,23 +363,16 @@ p {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .main-menu li a {
         font-size: 60px;
     }
-    
+
     .content {
         padding: 15px;
     }
-    
-    .content-image {
-        height: auto;
-        max-width: 70%;
-        display: block;
-        width: 100%;
-        margin: 0.5rem auto;
-    }
 
+    .content-image,
     img:not(.card-image) {
         height: auto;
         max-width: 70%;
@@ -443,7 +383,7 @@ p {
 }
 
 /* Small Devices */
-@media (max-width: 37.5em) { /* Equivalent to ~600px */
+@media (max-width: 600px) {
     h1 {
         font-size: 3rem;
     }
@@ -457,37 +397,27 @@ p {
         line-height: 1.4;
         text-align: center;
     }
-    
+
     .main-menu li a {
         font-size: 40px;
     }
-    
+
     .content {
         padding: 10px;
     }
-    
-    .content-image {
-        height: auto;
-        max-width: 70%;
-        display: block;
-        width: 100%;
-        margin: 0.5rem auto;
-    }
 
-    img {
-        max-width: 70%;
-        height: auto;
-        display: block;
-        width: 100%;
-        margin: 0.5rem auto;
-    }
-
+    .content-image,
     img:not(.card-image) {
         height: auto;
         max-width: 70%;
         display: block;
         width: 100%;
         margin: 0.5rem auto;
+    }
+
+    .card {
+        flex: 1 1 100%; /* Cards take full width on small screens */
+        max-width: none;
     }
 
     footer {
@@ -504,7 +434,7 @@ p {
 }
 
 /* Extra Small Devices */
-@media (max-width: 30em) { /* Equivalent to ~480px */
+@media (max-width: 480px) {
     h1 {
         font-size: 2rem;
     }
@@ -523,21 +453,7 @@ p {
         font-size: 30px;
     }
 
-    .content-image {
-        height: auto;
-        max-width: 70%;
-        display: block;
-        width: 100%;
-        margin: 0.5rem auto;
-    }
-
-    img {
-        display: block;
-        margin: 0.1rem auto;
-        height: auto;
-        max-width: 100%;
-    }
-
+    .content-image,
     img:not(.card-image) {
         height: auto;
         max-width: 70%;

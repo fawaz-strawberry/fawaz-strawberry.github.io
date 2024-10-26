@@ -1,0 +1,581 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    position: relative; /* Necessary for pseudo-element positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    transition: opacity 0.5s ease-in-out;
+    padding: 20px;
+    overflow: auto; /* Allow scrolling */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Use fixed positioning to not affect scrolling */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.1) 100%);
+    z-index: -1; /* Ensure the gradient is behind other content */
+}
+
+body::after {
+    content: "";
+    position: fixed; /* Use fixed positioning to not affect scrolling */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/background.jpg') repeat;
+    background-size: 5% 5%;
+    background-attachment: fixed; /* Keep background fixed */
+    opacity: 0.2; /* Adjust opacity for transparency effect */
+    animation: moveBackground 60s linear infinite; /* Adjust the duration for desired effect */
+    z-index: -2; /* Ensure the background image is behind the gradient */
+}
+body {
+    position: relative; /* Necessary for pseudo-element positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 20px;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.7) 80%);
+    background-attachment: fixed;
+    z-index: -1; /* Ensure the gradient is behind other content */
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/background.jpg') repeat;
+    background-size: 10% 10%;
+    background-attachment: fixed; /* Keep background fixed */
+    opacity: 0.2; /* Adjust opacity for transparency effect */
+    animation: moveBackground 60s linear infinite; /* Adjust the duration for desired effect */
+    z-index: -2; /* Ensure the background image is behind the gradient */
+}
+
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+h1 {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 3rem;
+    margin-top: 2rem;
+    font-family: "Anta", sans-serif;
+    margin-bottom: 1rem; /* Added margin-bottom */
+}
+
+h2, h3 {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: "Anta", sans-serif;
+    margin-top: 1rem; /* Added margin-top */
+}
+
+/* Main Menu Styles */
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding-top: 30px;
+}
+
+.main-menu li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.main-menu li::before {
+    content: ""; /* Necessary for the pseudo-element to be generated */
+    position: absolute;
+    left: -40px; /* Adjust based on your layout */
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg); /* Centers the triangle vertically and rotates it */
+    border-left: 15px solid transparent; /* Adjust size to your liking */
+    border-right: 15px solid transparent; /* Adjust size to your liking */
+    border-top: 15px solid red; /* The color and size of the triangle */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.main-menu li:hover::before {
+    opacity: 1; /* Show the triangle on hover */
+}
+
+.main-menu li a {
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1.0);
+    font-weight: bold;
+    font-family: "Anta", sans-serif;
+    display: inline-block;
+}
+
+.content {
+    text-align: center;
+    flex: 1; /* Fill the remaining space */
+    width: 100%; /* Ensure content spans full width */
+    max-width: 1200px; /* Set a maximum width for better readability */
+    padding: 20px; /* Added padding for content */
+    font-family: "roboto", sans-serif;
+    font-size: 20px;
+}
+
+/* Footer Styles */
+footer {
+    border-top: 2px solid #ccc;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%; /* Ensure it spans the full width */
+}
+
+footer .footer-menu {
+    display: flex;
+    justify-content: space-around; /* Evenly space items without specifying a gap */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-menu li a {
+    text-decoration: none;
+    font-family: "Anta", sans-serif;
+    color: #000;
+    font-weight: bold;
+}
+
+img {
+    max-height: 500px;
+    max-width: 500px; /* Optional: set a max size */
+    height: auto;
+    width: auto;
+    margin: 20px 0; /* Added margin to separate images from text */
+}
+
+.small-title {
+    position: fixed; /* Keep it fixed at the top left */
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    font-family: "Anta", sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    z-index: 1000; /* Ensure it is on top of other elements */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.small-title a {
+    text-decoration: none;
+    color: inherit;
+}
+/* Text wrapping and responsive typography */
+p {
+    font-size: 1.2rem;  /* Base font size */
+    line-height: 1.6;   /* Improve readability */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.all-photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card {
+    position: relative;
+    margin: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    will-change: transform;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease; /* Faster transition for when the hover ends */
+}
+
+.card .caption {
+    padding: 10px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(255,255,255,0.8);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Styles for the card row */
+.card-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.card-row .card {
+    position: relative;
+    margin: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+    flex: 0 0 auto;  /* Prevent the card from shrinking */
+}
+
+.card-row .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-row .card .caption {
+    padding: 10px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(255,255,255,0.8);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.card-row .card:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Styles for the card column */
+.card-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.card-column .card {
+    position: relative;
+    margin: 20px;
+    width: 80%;  /* Adjust width as needed */
+    max-width: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+}
+
+.card-column .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-column .card .caption {
+    padding: 10px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(255,255,255,0.8);
+    width: 100%;
+}
+
+.card-column .card:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
+/* Gentle Floating Animations */
+@keyframes float1 {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    12.5% { transform: translate(-3px, -5px) rotate(-0.5deg); }
+    25%  { transform: translate(-5px, -10px) rotate(-1deg); }
+    37.5% { transform: translate(-8px, -12px) rotate(-1.5deg); }
+    50%  { transform: translate(-10px, -15px) rotate(-2deg); }
+    62.5% { transform: translate(-8px, -12px) rotate(-1.5deg); }
+    75%  { transform: translate(-5px, -10px) rotate(-1deg); }
+    87.5% { transform: translate(-3px, -5px) rotate(-0.5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes float2 {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    10%  { transform: translate(4px, -6px) rotate(0.4deg); }
+    20%  { transform: translate(8px, -12px) rotate(0.8deg); }
+    30%  { transform: translate(6px, -10px) rotate(0.6deg); }
+    40%  { transform: translate(2px, -5px) rotate(0.3deg); }
+    50%  { transform: translate(0, 0) rotate(0deg); }
+    60%  { transform: translate(-2px, 5px) rotate(-0.3deg); }
+    70%  { transform: translate(-6px, 10px) rotate(-0.6deg); }
+    80%  { transform: translate(-8px, 12px) rotate(-0.8deg); }
+    90%  { transform: translate(-4px, 6px) rotate(-0.4deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes float3 {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    15%  { transform: translate(-5px, 8px) rotate(-0.5deg); }
+    30%  { transform: translate(-10px, 15px) rotate(-1deg); }
+    45%  { transform: translate(-8px, 10px) rotate(-0.8deg); }
+    60%  { transform: translate(-4px, 5px) rotate(-0.4deg); }
+    75%  { transform: translate(0px, 0px) rotate(0deg); }
+    90%  { transform: translate(5px, -8px) rotate(0.5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes float4 {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    20%  { transform: translate(6px, 12px) rotate(0.6deg); }
+    40%  { transform: translate(12px, 18px) rotate(1.2deg); }
+    60%  { transform: translate(8px, 10px) rotate(0.8deg); }
+    80%  { transform: translate(3px, 5px) rotate(0.4deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes float5 {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(-8px, 10px) rotate(-0.5deg); }
+    50%  { transform: translate(-15px, 20px) rotate(-1deg); }
+    75%  { transform: translate(-8px, 10px) rotate(-0.5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes float6 {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    20%  { transform: translate(5px, -8px) rotate(0.4deg); }
+    40%  { transform: translate(10px, -15px) rotate(0.8deg); }
+    60%  { transform: translate(5px, -8px) rotate(0.4deg); }
+    80%  { transform: translate(0px, 0px) rotate(0deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+
+
+
+
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.modal .caption {
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+}
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 50em) { /* Equivalent to ~600px - Mid-size devices */
+    p {
+        font-size: 1.2rem;  /* Base font size */
+        line-height: 1.6;   /* Improve readability */
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    /* Headings and responsive typography */
+    h1 {
+        font-size: 4rem; /* For larger screens */
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .main-menu li a {
+        font-size: 60px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    img {
+        height: auto;
+        max-width: 70%; /* Optional: set a max size */
+        display: block;   /* Make the image behave like a block-level element */
+        width: 100%;       /* Set the width as a percentage of the container or screen */
+        margin: .5rem auto; /* Center the image horizontally with auto margin */
+    }
+
+}
+
+@media (max-width: 37.5em) { /* Equivalent to ~600px - Mid-size devices */
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+    
+    .main-menu li a {
+        font-size: 40px;
+    }
+    
+    .content {
+        padding: 10px;
+    }
+    
+    img {
+        max-width: 70%; /* Optional: set a max size */
+        height: auto;
+        display: block;   /* Make the image behave like a block-level element */
+        width: 100%;       /* Set the width as a percentage of the container or screen */
+        margin: .5rem auto; /* Center the image horizontally with auto margin */
+    }
+    footer {
+        flex-direction: column;
+    }
+
+    footer .footer-menu {
+        flex-direction: column;
+    }
+
+    footer .footer-menu li {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 30em) { /* Equivalent to ~480px - Small devices */
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+    .main-menu li a {
+        font-size: 30px;
+    }
+
+    img {
+        display: block;     /* Make the image behave like a block-level element */
+        margin: .1rem auto; /* Center the image horizontally with auto margin */
+        height: auto;       /* Maintain aspect ratio */
+        max-width: 100%;    /* Ensure it doesn't go beyond the screen size */
+    }
+
+    .small-title {
+        font-size: 14px;
+    }
+}

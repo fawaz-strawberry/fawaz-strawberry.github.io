@@ -50,7 +50,7 @@ body::after {
     opacity: 0.2; /* Adjust opacity for transparency effect */
     animation: moveBackground 60s linear infinite; /* Adjust the duration for desired effect */
     z-index: -2; /* Ensure the background image is behind the gradient */
-}
+} */
 body {
     position: relative; /* Necessary for pseudo-element positioning */
     display: flex;
@@ -290,12 +290,14 @@ p {
     color: rgba(0, 0, 0, 0.85);
 }
 
-/* Adjust gap between cards on smaller screens */
-@media (max-width: 600px) {
-    .main-options {
-        gap: 20px;
-    }
+/* More specific selector */
+.card .card-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    transition: transform 0.2s ease;
 }
+
 .card img {
     position: absolute;
     top: 0;
@@ -313,6 +315,7 @@ p {
     object-fit: cover;
     transition: transform 0.2s ease;
 }
+
 
 .card .caption {
     /* Adjust positioning if necessary */
@@ -543,6 +546,10 @@ p {
         text-align: center;
     }
 
+    .main-options {
+        gap: 19px;
+    }
+
     /* Headings and responsive typography */
     h1 {
         font-size: 4rem; /* For larger screens */
@@ -562,12 +569,19 @@ p {
         padding: 15px;
     }
     
-    img {
+    .content-image {
         height: auto;
-        max-width: 70%; /* Optional: set a max size */
-        display: block;   /* Make the image behave like a block-level element */
-        width: 100%;       /* Set the width as a percentage of the container or screen */
-        margin: .5rem auto; /* Center the image horizontally with auto margin */
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
+    }
+    img:not(.card-image) {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
     }
 
 }
@@ -595,12 +609,27 @@ p {
         padding: 10px;
     }
     
+    .content-image {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
+    }
+
     img {
         max-width: 70%; /* Optional: set a max size */
         height: auto;
         display: block;   /* Make the image behave like a block-level element */
         width: 100%;       /* Set the width as a percentage of the container or screen */
         margin: .5rem auto; /* Center the image horizontally with auto margin */
+    }
+    img:not(.card-image) {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
     }
     footer {
         flex-direction: column;
@@ -633,11 +662,25 @@ p {
         font-size: 30px;
     }
 
+    .content-image {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
+    }
     img {
         display: block;     /* Make the image behave like a block-level element */
         margin: .1rem auto; /* Center the image horizontally with auto margin */
         height: auto;       /* Maintain aspect ratio */
         max-width: 100%;    /* Ensure it doesn't go beyond the screen size */
+    }
+    img:not(.card-image) {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
     }
 
     .small-title {
@@ -645,232 +688,232 @@ p {
     }
 }
 @keyframes float1 {
-    0.0% { transform: translate(0.00px, 11.99px) rotate(0.00deg); }
-    5.0% { transform: translate(3.71px, 11.41px) rotate(1.44deg); }
-    10.0% { transform: translate(7.05px, 9.70px) rotate(2.33deg); }
-    15.0% { transform: translate(9.70px, 7.05px) rotate(2.33deg); }
-    20.0% { transform: translate(11.41px, 3.71px) rotate(1.44deg); }
-    25.0% { transform: translate(11.99px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(11.41px, -3.71px) rotate(-1.44deg); }
-    35.0% { transform: translate(9.70px, -7.05px) rotate(-2.33deg); }
-    40.0% { transform: translate(7.05px, -9.70px) rotate(-2.33deg); }
-    45.0% { transform: translate(3.71px, -11.41px) rotate(-1.44deg); }
-    50.0% { transform: translate(0.00px, -11.99px) rotate(-0.00deg); }
-    55.0% { transform: translate(-3.71px, -11.41px) rotate(1.44deg); }
-    60.0% { transform: translate(-7.05px, -9.70px) rotate(2.33deg); }
-    65.0% { transform: translate(-9.70px, -7.05px) rotate(2.33deg); }
-    70.0% { transform: translate(-11.41px, -3.71px) rotate(1.44deg); }
-    75.0% { transform: translate(-11.99px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-11.41px, 3.71px) rotate(-1.44deg); }
-    85.0% { transform: translate(-9.70px, 7.05px) rotate(-2.33deg); }
-    90.0% { transform: translate(-7.05px, 9.70px) rotate(-2.33deg); }
-    95.0% { transform: translate(-3.71px, 11.41px) rotate(-1.44deg); }
-    100.0% { transform: translate(-0.00px, 11.99px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 15.53px) rotate(0.00deg); }
+    5.0% { transform: translate(4.80px, 14.77px) rotate(1.52deg); }
+    10.0% { transform: translate(9.13px, 12.56px) rotate(2.46deg); }
+    15.0% { transform: translate(12.56px, 9.13px) rotate(2.46deg); }
+    20.0% { transform: translate(14.77px, 4.80px) rotate(1.52deg); }
+    25.0% { transform: translate(15.53px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(14.77px, -4.80px) rotate(-1.52deg); }
+    35.0% { transform: translate(12.56px, -9.13px) rotate(-2.46deg); }
+    40.0% { transform: translate(9.13px, -12.56px) rotate(-2.46deg); }
+    45.0% { transform: translate(4.80px, -14.77px) rotate(-1.52deg); }
+    50.0% { transform: translate(0.00px, -15.53px) rotate(-0.00deg); }
+    55.0% { transform: translate(-4.80px, -14.77px) rotate(1.52deg); }
+    60.0% { transform: translate(-9.13px, -12.56px) rotate(2.46deg); }
+    65.0% { transform: translate(-12.56px, -9.13px) rotate(2.46deg); }
+    70.0% { transform: translate(-14.77px, -4.80px) rotate(1.52deg); }
+    75.0% { transform: translate(-15.53px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-14.77px, 4.80px) rotate(-1.52deg); }
+    85.0% { transform: translate(-12.56px, 9.13px) rotate(-2.46deg); }
+    90.0% { transform: translate(-9.13px, 12.56px) rotate(-2.46deg); }
+    95.0% { transform: translate(-4.80px, 14.77px) rotate(-1.52deg); }
+    100.0% { transform: translate(-0.00px, 15.53px) rotate(-0.00deg); }
 }
 @keyframes float2 {
-    0.0% { transform: translate(0.00px, 19.68px) rotate(0.00deg); }
-    5.0% { transform: translate(6.08px, 18.71px) rotate(1.03deg); }
-    10.0% { transform: translate(11.57px, 15.92px) rotate(1.66deg); }
-    15.0% { transform: translate(15.92px, 11.57px) rotate(1.66deg); }
-    20.0% { transform: translate(18.71px, 6.08px) rotate(1.03deg); }
-    25.0% { transform: translate(19.68px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(18.71px, -6.08px) rotate(-1.03deg); }
-    35.0% { transform: translate(15.92px, -11.57px) rotate(-1.66deg); }
-    40.0% { transform: translate(11.57px, -15.92px) rotate(-1.66deg); }
-    45.0% { transform: translate(6.08px, -18.71px) rotate(-1.03deg); }
-    50.0% { transform: translate(0.00px, -19.68px) rotate(-0.00deg); }
-    55.0% { transform: translate(-6.08px, -18.71px) rotate(1.03deg); }
-    60.0% { transform: translate(-11.57px, -15.92px) rotate(1.66deg); }
-    65.0% { transform: translate(-15.92px, -11.57px) rotate(1.66deg); }
-    70.0% { transform: translate(-18.71px, -6.08px) rotate(1.03deg); }
-    75.0% { transform: translate(-19.68px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-18.71px, 6.08px) rotate(-1.03deg); }
-    85.0% { transform: translate(-15.92px, 11.57px) rotate(-1.66deg); }
-    90.0% { transform: translate(-11.57px, 15.92px) rotate(-1.66deg); }
-    95.0% { transform: translate(-6.08px, 18.71px) rotate(-1.03deg); }
-    100.0% { transform: translate(-0.00px, 19.68px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 10.36px) rotate(0.00deg); }
+    5.0% { transform: translate(3.20px, 9.85px) rotate(0.79deg); }
+    10.0% { transform: translate(6.09px, 8.38px) rotate(1.28deg); }
+    15.0% { transform: translate(8.38px, 6.09px) rotate(1.28deg); }
+    20.0% { transform: translate(9.85px, 3.20px) rotate(0.79deg); }
+    25.0% { transform: translate(10.36px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(9.85px, -3.20px) rotate(-0.79deg); }
+    35.0% { transform: translate(8.38px, -6.09px) rotate(-1.28deg); }
+    40.0% { transform: translate(6.09px, -8.38px) rotate(-1.28deg); }
+    45.0% { transform: translate(3.20px, -9.85px) rotate(-0.79deg); }
+    50.0% { transform: translate(0.00px, -10.36px) rotate(-0.00deg); }
+    55.0% { transform: translate(-3.20px, -9.85px) rotate(0.79deg); }
+    60.0% { transform: translate(-6.09px, -8.38px) rotate(1.28deg); }
+    65.0% { transform: translate(-8.38px, -6.09px) rotate(1.28deg); }
+    70.0% { transform: translate(-9.85px, -3.20px) rotate(0.79deg); }
+    75.0% { transform: translate(-10.36px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-9.85px, 3.20px) rotate(-0.79deg); }
+    85.0% { transform: translate(-8.38px, 6.09px) rotate(-1.28deg); }
+    90.0% { transform: translate(-6.09px, 8.38px) rotate(-1.28deg); }
+    95.0% { transform: translate(-3.20px, 9.85px) rotate(-0.79deg); }
+    100.0% { transform: translate(-0.00px, 10.36px) rotate(-0.00deg); }
 }
 @keyframes float3 {
-    0.0% { transform: translate(0.00px, 12.76px) rotate(0.00deg); }
-    5.0% { transform: translate(3.94px, 12.13px) rotate(1.15deg); }
-    10.0% { transform: translate(7.50px, 10.32px) rotate(1.87deg); }
-    15.0% { transform: translate(10.32px, 7.50px) rotate(1.87deg); }
-    20.0% { transform: translate(12.13px, 3.94px) rotate(1.15deg); }
-    25.0% { transform: translate(12.76px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(12.13px, -3.94px) rotate(-1.15deg); }
-    35.0% { transform: translate(10.32px, -7.50px) rotate(-1.87deg); }
-    40.0% { transform: translate(7.50px, -10.32px) rotate(-1.87deg); }
-    45.0% { transform: translate(3.94px, -12.13px) rotate(-1.15deg); }
-    50.0% { transform: translate(0.00px, -12.76px) rotate(-0.00deg); }
-    55.0% { transform: translate(-3.94px, -12.13px) rotate(1.15deg); }
-    60.0% { transform: translate(-7.50px, -10.32px) rotate(1.87deg); }
-    65.0% { transform: translate(-10.32px, -7.50px) rotate(1.87deg); }
-    70.0% { transform: translate(-12.13px, -3.94px) rotate(1.15deg); }
-    75.0% { transform: translate(-12.76px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-12.13px, 3.94px) rotate(-1.15deg); }
-    85.0% { transform: translate(-10.32px, 7.50px) rotate(-1.87deg); }
-    90.0% { transform: translate(-7.50px, 10.32px) rotate(-1.87deg); }
-    95.0% { transform: translate(-3.94px, 12.13px) rotate(-1.15deg); }
-    100.0% { transform: translate(-0.00px, 12.76px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 16.21px) rotate(0.00deg); }
+    5.0% { transform: translate(5.01px, 15.42px) rotate(1.51deg); }
+    10.0% { transform: translate(9.53px, 13.11px) rotate(2.44deg); }
+    15.0% { transform: translate(13.11px, 9.53px) rotate(2.44deg); }
+    20.0% { transform: translate(15.42px, 5.01px) rotate(1.51deg); }
+    25.0% { transform: translate(16.21px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(15.42px, -5.01px) rotate(-1.51deg); }
+    35.0% { transform: translate(13.11px, -9.53px) rotate(-2.44deg); }
+    40.0% { transform: translate(9.53px, -13.11px) rotate(-2.44deg); }
+    45.0% { transform: translate(5.01px, -15.42px) rotate(-1.51deg); }
+    50.0% { transform: translate(0.00px, -16.21px) rotate(-0.00deg); }
+    55.0% { transform: translate(-5.01px, -15.42px) rotate(1.51deg); }
+    60.0% { transform: translate(-9.53px, -13.11px) rotate(2.44deg); }
+    65.0% { transform: translate(-13.11px, -9.53px) rotate(2.44deg); }
+    70.0% { transform: translate(-15.42px, -5.01px) rotate(1.51deg); }
+    75.0% { transform: translate(-16.21px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-15.42px, 5.01px) rotate(-1.51deg); }
+    85.0% { transform: translate(-13.11px, 9.53px) rotate(-2.44deg); }
+    90.0% { transform: translate(-9.53px, 13.11px) rotate(-2.44deg); }
+    95.0% { transform: translate(-5.01px, 15.42px) rotate(-1.51deg); }
+    100.0% { transform: translate(-0.00px, 16.21px) rotate(-0.00deg); }
 }
 @keyframes float4 {
-    0.0% { transform: translate(0.00px, 12.47px) rotate(0.00deg); }
-    5.0% { transform: translate(3.85px, 11.86px) rotate(1.31deg); }
-    10.0% { transform: translate(7.33px, 10.09px) rotate(2.12deg); }
-    15.0% { transform: translate(10.09px, 7.33px) rotate(2.12deg); }
-    20.0% { transform: translate(11.86px, 3.85px) rotate(1.31deg); }
-    25.0% { transform: translate(12.47px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(11.86px, -3.85px) rotate(-1.31deg); }
-    35.0% { transform: translate(10.09px, -7.33px) rotate(-2.12deg); }
-    40.0% { transform: translate(7.33px, -10.09px) rotate(-2.12deg); }
-    45.0% { transform: translate(3.85px, -11.86px) rotate(-1.31deg); }
-    50.0% { transform: translate(0.00px, -12.47px) rotate(-0.00deg); }
-    55.0% { transform: translate(-3.85px, -11.86px) rotate(1.31deg); }
-    60.0% { transform: translate(-7.33px, -10.09px) rotate(2.12deg); }
-    65.0% { transform: translate(-10.09px, -7.33px) rotate(2.12deg); }
-    70.0% { transform: translate(-11.86px, -3.85px) rotate(1.31deg); }
-    75.0% { transform: translate(-12.47px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-11.86px, 3.85px) rotate(-1.31deg); }
-    85.0% { transform: translate(-10.09px, 7.33px) rotate(-2.12deg); }
-    90.0% { transform: translate(-7.33px, 10.09px) rotate(-2.12deg); }
-    95.0% { transform: translate(-3.85px, 11.86px) rotate(-1.31deg); }
-    100.0% { transform: translate(-0.00px, 12.47px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 14.82px) rotate(0.00deg); }
+    5.0% { transform: translate(4.58px, 14.10px) rotate(1.73deg); }
+    10.0% { transform: translate(8.71px, 11.99px) rotate(2.79deg); }
+    15.0% { transform: translate(11.99px, 8.71px) rotate(2.79deg); }
+    20.0% { transform: translate(14.10px, 4.58px) rotate(1.73deg); }
+    25.0% { transform: translate(14.82px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(14.10px, -4.58px) rotate(-1.73deg); }
+    35.0% { transform: translate(11.99px, -8.71px) rotate(-2.79deg); }
+    40.0% { transform: translate(8.71px, -11.99px) rotate(-2.79deg); }
+    45.0% { transform: translate(4.58px, -14.10px) rotate(-1.73deg); }
+    50.0% { transform: translate(0.00px, -14.82px) rotate(-0.00deg); }
+    55.0% { transform: translate(-4.58px, -14.10px) rotate(1.73deg); }
+    60.0% { transform: translate(-8.71px, -11.99px) rotate(2.79deg); }
+    65.0% { transform: translate(-11.99px, -8.71px) rotate(2.79deg); }
+    70.0% { transform: translate(-14.10px, -4.58px) rotate(1.73deg); }
+    75.0% { transform: translate(-14.82px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-14.10px, 4.58px) rotate(-1.73deg); }
+    85.0% { transform: translate(-11.99px, 8.71px) rotate(-2.79deg); }
+    90.0% { transform: translate(-8.71px, 11.99px) rotate(-2.79deg); }
+    95.0% { transform: translate(-4.58px, 14.10px) rotate(-1.73deg); }
+    100.0% { transform: translate(-0.00px, 14.82px) rotate(-0.00deg); }
 }
 @keyframes float5 {
-    0.0% { transform: translate(0.00px, 11.71px) rotate(0.00deg); }
-    5.0% { transform: translate(3.62px, 11.14px) rotate(1.65deg); }
-    10.0% { transform: translate(6.88px, 9.47px) rotate(2.68deg); }
-    15.0% { transform: translate(9.47px, 6.88px) rotate(2.68deg); }
-    20.0% { transform: translate(11.14px, 3.62px) rotate(1.65deg); }
-    25.0% { transform: translate(11.71px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(11.14px, -3.62px) rotate(-1.65deg); }
-    35.0% { transform: translate(9.47px, -6.88px) rotate(-2.68deg); }
-    40.0% { transform: translate(6.88px, -9.47px) rotate(-2.68deg); }
-    45.0% { transform: translate(3.62px, -11.14px) rotate(-1.65deg); }
-    50.0% { transform: translate(0.00px, -11.71px) rotate(-0.00deg); }
-    55.0% { transform: translate(-3.62px, -11.14px) rotate(1.65deg); }
-    60.0% { transform: translate(-6.88px, -9.47px) rotate(2.68deg); }
-    65.0% { transform: translate(-9.47px, -6.88px) rotate(2.68deg); }
-    70.0% { transform: translate(-11.14px, -3.62px) rotate(1.65deg); }
-    75.0% { transform: translate(-11.71px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-11.14px, 3.62px) rotate(-1.65deg); }
-    85.0% { transform: translate(-9.47px, 6.88px) rotate(-2.68deg); }
-    90.0% { transform: translate(-6.88px, 9.47px) rotate(-2.68deg); }
-    95.0% { transform: translate(-3.62px, 11.14px) rotate(-1.65deg); }
-    100.0% { transform: translate(-0.00px, 11.71px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 14.23px) rotate(0.00deg); }
+    5.0% { transform: translate(4.40px, 13.53px) rotate(1.62deg); }
+    10.0% { transform: translate(8.36px, 11.51px) rotate(2.61deg); }
+    15.0% { transform: translate(11.51px, 8.36px) rotate(2.61deg); }
+    20.0% { transform: translate(13.53px, 4.40px) rotate(1.62deg); }
+    25.0% { transform: translate(14.23px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(13.53px, -4.40px) rotate(-1.62deg); }
+    35.0% { transform: translate(11.51px, -8.36px) rotate(-2.61deg); }
+    40.0% { transform: translate(8.36px, -11.51px) rotate(-2.61deg); }
+    45.0% { transform: translate(4.40px, -13.53px) rotate(-1.62deg); }
+    50.0% { transform: translate(0.00px, -14.23px) rotate(-0.00deg); }
+    55.0% { transform: translate(-4.40px, -13.53px) rotate(1.62deg); }
+    60.0% { transform: translate(-8.36px, -11.51px) rotate(2.61deg); }
+    65.0% { transform: translate(-11.51px, -8.36px) rotate(2.61deg); }
+    70.0% { transform: translate(-13.53px, -4.40px) rotate(1.62deg); }
+    75.0% { transform: translate(-14.23px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-13.53px, 4.40px) rotate(-1.62deg); }
+    85.0% { transform: translate(-11.51px, 8.36px) rotate(-2.61deg); }
+    90.0% { transform: translate(-8.36px, 11.51px) rotate(-2.61deg); }
+    95.0% { transform: translate(-4.40px, 13.53px) rotate(-1.62deg); }
+    100.0% { transform: translate(-0.00px, 14.23px) rotate(-0.00deg); }
 }
 @keyframes float6 {
-    0.0% { transform: translate(0.00px, 17.09px) rotate(0.00deg); }
-    5.0% { transform: translate(5.28px, 16.26px) rotate(1.69deg); }
-    10.0% { transform: translate(10.05px, 13.83px) rotate(2.73deg); }
-    15.0% { transform: translate(13.83px, 10.05px) rotate(2.73deg); }
-    20.0% { transform: translate(16.26px, 5.28px) rotate(1.69deg); }
-    25.0% { transform: translate(17.09px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(16.26px, -5.28px) rotate(-1.69deg); }
-    35.0% { transform: translate(13.83px, -10.05px) rotate(-2.73deg); }
-    40.0% { transform: translate(10.05px, -13.83px) rotate(-2.73deg); }
-    45.0% { transform: translate(5.28px, -16.26px) rotate(-1.69deg); }
-    50.0% { transform: translate(0.00px, -17.09px) rotate(-0.00deg); }
-    55.0% { transform: translate(-5.28px, -16.26px) rotate(1.69deg); }
-    60.0% { transform: translate(-10.05px, -13.83px) rotate(2.73deg); }
-    65.0% { transform: translate(-13.83px, -10.05px) rotate(2.73deg); }
-    70.0% { transform: translate(-16.26px, -5.28px) rotate(1.69deg); }
-    75.0% { transform: translate(-17.09px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-16.26px, 5.28px) rotate(-1.69deg); }
-    85.0% { transform: translate(-13.83px, 10.05px) rotate(-2.73deg); }
-    90.0% { transform: translate(-10.05px, 13.83px) rotate(-2.73deg); }
-    95.0% { transform: translate(-5.28px, 16.26px) rotate(-1.69deg); }
-    100.0% { transform: translate(-0.00px, 17.09px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 17.49px) rotate(0.00deg); }
+    5.0% { transform: translate(5.40px, 16.63px) rotate(1.46deg); }
+    10.0% { transform: translate(10.28px, 14.15px) rotate(2.35deg); }
+    15.0% { transform: translate(14.15px, 10.28px) rotate(2.35deg); }
+    20.0% { transform: translate(16.63px, 5.40px) rotate(1.46deg); }
+    25.0% { transform: translate(17.49px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(16.63px, -5.40px) rotate(-1.46deg); }
+    35.0% { transform: translate(14.15px, -10.28px) rotate(-2.35deg); }
+    40.0% { transform: translate(10.28px, -14.15px) rotate(-2.35deg); }
+    45.0% { transform: translate(5.40px, -16.63px) rotate(-1.46deg); }
+    50.0% { transform: translate(0.00px, -17.49px) rotate(-0.00deg); }
+    55.0% { transform: translate(-5.40px, -16.63px) rotate(1.46deg); }
+    60.0% { transform: translate(-10.28px, -14.15px) rotate(2.35deg); }
+    65.0% { transform: translate(-14.15px, -10.28px) rotate(2.35deg); }
+    70.0% { transform: translate(-16.63px, -5.40px) rotate(1.46deg); }
+    75.0% { transform: translate(-17.49px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-16.63px, 5.40px) rotate(-1.46deg); }
+    85.0% { transform: translate(-14.15px, 10.28px) rotate(-2.35deg); }
+    90.0% { transform: translate(-10.28px, 14.15px) rotate(-2.35deg); }
+    95.0% { transform: translate(-5.40px, 16.63px) rotate(-1.46deg); }
+    100.0% { transform: translate(-0.00px, 17.49px) rotate(-0.00deg); }
 }
 @keyframes float7 {
-    0.0% { transform: translate(0.00px, 12.26px) rotate(0.00deg); }
-    5.0% { transform: translate(3.79px, 11.66px) rotate(1.34deg); }
-    10.0% { transform: translate(7.21px, 9.92px) rotate(2.16deg); }
-    15.0% { transform: translate(9.92px, 7.21px) rotate(2.16deg); }
-    20.0% { transform: translate(11.66px, 3.79px) rotate(1.34deg); }
-    25.0% { transform: translate(12.26px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(11.66px, -3.79px) rotate(-1.34deg); }
-    35.0% { transform: translate(9.92px, -7.21px) rotate(-2.16deg); }
-    40.0% { transform: translate(7.21px, -9.92px) rotate(-2.16deg); }
-    45.0% { transform: translate(3.79px, -11.66px) rotate(-1.34deg); }
-    50.0% { transform: translate(0.00px, -12.26px) rotate(-0.00deg); }
-    55.0% { transform: translate(-3.79px, -11.66px) rotate(1.34deg); }
-    60.0% { transform: translate(-7.21px, -9.92px) rotate(2.16deg); }
-    65.0% { transform: translate(-9.92px, -7.21px) rotate(2.16deg); }
-    70.0% { transform: translate(-11.66px, -3.79px) rotate(1.34deg); }
-    75.0% { transform: translate(-12.26px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-11.66px, 3.79px) rotate(-1.34deg); }
-    85.0% { transform: translate(-9.92px, 7.21px) rotate(-2.16deg); }
-    90.0% { transform: translate(-7.21px, 9.92px) rotate(-2.16deg); }
-    95.0% { transform: translate(-3.79px, 11.66px) rotate(-1.34deg); }
-    100.0% { transform: translate(-0.00px, 12.26px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 10.08px) rotate(0.00deg); }
+    5.0% { transform: translate(3.11px, 9.59px) rotate(0.94deg); }
+    10.0% { transform: translate(5.92px, 8.15px) rotate(1.52deg); }
+    15.0% { transform: translate(8.15px, 5.92px) rotate(1.52deg); }
+    20.0% { transform: translate(9.59px, 3.11px) rotate(0.94deg); }
+    25.0% { transform: translate(10.08px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(9.59px, -3.11px) rotate(-0.94deg); }
+    35.0% { transform: translate(8.15px, -5.92px) rotate(-1.52deg); }
+    40.0% { transform: translate(5.92px, -8.15px) rotate(-1.52deg); }
+    45.0% { transform: translate(3.11px, -9.59px) rotate(-0.94deg); }
+    50.0% { transform: translate(0.00px, -10.08px) rotate(-0.00deg); }
+    55.0% { transform: translate(-3.11px, -9.59px) rotate(0.94deg); }
+    60.0% { transform: translate(-5.92px, -8.15px) rotate(1.52deg); }
+    65.0% { transform: translate(-8.15px, -5.92px) rotate(1.52deg); }
+    70.0% { transform: translate(-9.59px, -3.11px) rotate(0.94deg); }
+    75.0% { transform: translate(-10.08px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-9.59px, 3.11px) rotate(-0.94deg); }
+    85.0% { transform: translate(-8.15px, 5.92px) rotate(-1.52deg); }
+    90.0% { transform: translate(-5.92px, 8.15px) rotate(-1.52deg); }
+    95.0% { transform: translate(-3.11px, 9.59px) rotate(-0.94deg); }
+    100.0% { transform: translate(-0.00px, 10.08px) rotate(-0.00deg); }
 }
 @keyframes float8 {
-    0.0% { transform: translate(0.00px, 14.51px) rotate(0.00deg); }
-    5.0% { transform: translate(4.48px, 13.80px) rotate(1.20deg); }
-    10.0% { transform: translate(8.53px, 11.74px) rotate(1.94deg); }
-    15.0% { transform: translate(11.74px, 8.53px) rotate(1.94deg); }
-    20.0% { transform: translate(13.80px, 4.48px) rotate(1.20deg); }
-    25.0% { transform: translate(14.51px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(13.80px, -4.48px) rotate(-1.20deg); }
-    35.0% { transform: translate(11.74px, -8.53px) rotate(-1.94deg); }
-    40.0% { transform: translate(8.53px, -11.74px) rotate(-1.94deg); }
-    45.0% { transform: translate(4.48px, -13.80px) rotate(-1.20deg); }
-    50.0% { transform: translate(0.00px, -14.51px) rotate(-0.00deg); }
-    55.0% { transform: translate(-4.48px, -13.80px) rotate(1.20deg); }
-    60.0% { transform: translate(-8.53px, -11.74px) rotate(1.94deg); }
-    65.0% { transform: translate(-11.74px, -8.53px) rotate(1.94deg); }
-    70.0% { transform: translate(-13.80px, -4.48px) rotate(1.20deg); }
-    75.0% { transform: translate(-14.51px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-13.80px, 4.48px) rotate(-1.20deg); }
-    85.0% { transform: translate(-11.74px, 8.53px) rotate(-1.94deg); }
-    90.0% { transform: translate(-8.53px, 11.74px) rotate(-1.94deg); }
-    95.0% { transform: translate(-4.48px, 13.80px) rotate(-1.20deg); }
-    100.0% { transform: translate(-0.00px, 14.51px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 12.31px) rotate(0.00deg); }
+    5.0% { transform: translate(3.81px, 11.71px) rotate(1.53deg); }
+    10.0% { transform: translate(7.24px, 9.96px) rotate(2.47deg); }
+    15.0% { transform: translate(9.96px, 7.24px) rotate(2.47deg); }
+    20.0% { transform: translate(11.71px, 3.81px) rotate(1.53deg); }
+    25.0% { transform: translate(12.31px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(11.71px, -3.81px) rotate(-1.53deg); }
+    35.0% { transform: translate(9.96px, -7.24px) rotate(-2.47deg); }
+    40.0% { transform: translate(7.24px, -9.96px) rotate(-2.47deg); }
+    45.0% { transform: translate(3.81px, -11.71px) rotate(-1.53deg); }
+    50.0% { transform: translate(0.00px, -12.31px) rotate(-0.00deg); }
+    55.0% { transform: translate(-3.81px, -11.71px) rotate(1.53deg); }
+    60.0% { transform: translate(-7.24px, -9.96px) rotate(2.47deg); }
+    65.0% { transform: translate(-9.96px, -7.24px) rotate(2.47deg); }
+    70.0% { transform: translate(-11.71px, -3.81px) rotate(1.53deg); }
+    75.0% { transform: translate(-12.31px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-11.71px, 3.81px) rotate(-1.53deg); }
+    85.0% { transform: translate(-9.96px, 7.24px) rotate(-2.47deg); }
+    90.0% { transform: translate(-7.24px, 9.96px) rotate(-2.47deg); }
+    95.0% { transform: translate(-3.81px, 11.71px) rotate(-1.53deg); }
+    100.0% { transform: translate(-0.00px, 12.31px) rotate(-0.00deg); }
 }
 @keyframes float9 {
-    0.0% { transform: translate(0.00px, 12.63px) rotate(0.00deg); }
-    5.0% { transform: translate(3.90px, 12.01px) rotate(0.61deg); }
-    10.0% { transform: translate(7.42px, 10.22px) rotate(0.99deg); }
-    15.0% { transform: translate(10.22px, 7.42px) rotate(0.99deg); }
-    20.0% { transform: translate(12.01px, 3.90px) rotate(0.61deg); }
-    25.0% { transform: translate(12.63px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(12.01px, -3.90px) rotate(-0.61deg); }
-    35.0% { transform: translate(10.22px, -7.42px) rotate(-0.99deg); }
-    40.0% { transform: translate(7.42px, -10.22px) rotate(-0.99deg); }
-    45.0% { transform: translate(3.90px, -12.01px) rotate(-0.61deg); }
-    50.0% { transform: translate(0.00px, -12.63px) rotate(-0.00deg); }
-    55.0% { transform: translate(-3.90px, -12.01px) rotate(0.61deg); }
-    60.0% { transform: translate(-7.42px, -10.22px) rotate(0.99deg); }
-    65.0% { transform: translate(-10.22px, -7.42px) rotate(0.99deg); }
-    70.0% { transform: translate(-12.01px, -3.90px) rotate(0.61deg); }
-    75.0% { transform: translate(-12.63px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-12.01px, 3.90px) rotate(-0.61deg); }
-    85.0% { transform: translate(-10.22px, 7.42px) rotate(-0.99deg); }
-    90.0% { transform: translate(-7.42px, 10.22px) rotate(-0.99deg); }
-    95.0% { transform: translate(-3.90px, 12.01px) rotate(-0.61deg); }
-    100.0% { transform: translate(-0.00px, 12.63px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 17.15px) rotate(0.00deg); }
+    5.0% { transform: translate(5.30px, 16.31px) rotate(1.75deg); }
+    10.0% { transform: translate(10.08px, 13.87px) rotate(2.83deg); }
+    15.0% { transform: translate(13.87px, 10.08px) rotate(2.83deg); }
+    20.0% { transform: translate(16.31px, 5.30px) rotate(1.75deg); }
+    25.0% { transform: translate(17.15px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(16.31px, -5.30px) rotate(-1.75deg); }
+    35.0% { transform: translate(13.87px, -10.08px) rotate(-2.83deg); }
+    40.0% { transform: translate(10.08px, -13.87px) rotate(-2.83deg); }
+    45.0% { transform: translate(5.30px, -16.31px) rotate(-1.75deg); }
+    50.0% { transform: translate(0.00px, -17.15px) rotate(-0.00deg); }
+    55.0% { transform: translate(-5.30px, -16.31px) rotate(1.75deg); }
+    60.0% { transform: translate(-10.08px, -13.87px) rotate(2.83deg); }
+    65.0% { transform: translate(-13.87px, -10.08px) rotate(2.83deg); }
+    70.0% { transform: translate(-16.31px, -5.30px) rotate(1.75deg); }
+    75.0% { transform: translate(-17.15px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-16.31px, 5.30px) rotate(-1.75deg); }
+    85.0% { transform: translate(-13.87px, 10.08px) rotate(-2.83deg); }
+    90.0% { transform: translate(-10.08px, 13.87px) rotate(-2.83deg); }
+    95.0% { transform: translate(-5.30px, 16.31px) rotate(-1.75deg); }
+    100.0% { transform: translate(-0.00px, 17.15px) rotate(-0.00deg); }
 }
 @keyframes float10 {
-    0.0% { transform: translate(0.00px, 18.63px) rotate(0.00deg); }
-    5.0% { transform: translate(5.76px, 17.72px) rotate(1.18deg); }
-    10.0% { transform: translate(10.95px, 15.07px) rotate(1.92deg); }
-    15.0% { transform: translate(15.07px, 10.95px) rotate(1.92deg); }
-    20.0% { transform: translate(17.72px, 5.76px) rotate(1.18deg); }
-    25.0% { transform: translate(18.63px, 0.00px) rotate(0.00deg); }
-    30.0% { transform: translate(17.72px, -5.76px) rotate(-1.18deg); }
-    35.0% { transform: translate(15.07px, -10.95px) rotate(-1.92deg); }
-    40.0% { transform: translate(10.95px, -15.07px) rotate(-1.92deg); }
-    45.0% { transform: translate(5.76px, -17.72px) rotate(-1.18deg); }
-    50.0% { transform: translate(0.00px, -18.63px) rotate(-0.00deg); }
-    55.0% { transform: translate(-5.76px, -17.72px) rotate(1.18deg); }
-    60.0% { transform: translate(-10.95px, -15.07px) rotate(1.92deg); }
-    65.0% { transform: translate(-15.07px, -10.95px) rotate(1.92deg); }
-    70.0% { transform: translate(-17.72px, -5.76px) rotate(1.18deg); }
-    75.0% { transform: translate(-18.63px, -0.00px) rotate(0.00deg); }
-    80.0% { transform: translate(-17.72px, 5.76px) rotate(-1.18deg); }
-    85.0% { transform: translate(-15.07px, 10.95px) rotate(-1.92deg); }
-    90.0% { transform: translate(-10.95px, 15.07px) rotate(-1.92deg); }
-    95.0% { transform: translate(-5.76px, 17.72px) rotate(-1.18deg); }
-    100.0% { transform: translate(-0.00px, 18.63px) rotate(-0.00deg); }
+    0.0% { transform: translate(0.00px, 11.00px) rotate(0.00deg); }
+    5.0% { transform: translate(3.40px, 10.46px) rotate(0.62deg); }
+    10.0% { transform: translate(6.47px, 8.90px) rotate(1.00deg); }
+    15.0% { transform: translate(8.90px, 6.47px) rotate(1.00deg); }
+    20.0% { transform: translate(10.46px, 3.40px) rotate(0.62deg); }
+    25.0% { transform: translate(11.00px, 0.00px) rotate(0.00deg); }
+    30.0% { transform: translate(10.46px, -3.40px) rotate(-0.62deg); }
+    35.0% { transform: translate(8.90px, -6.47px) rotate(-1.00deg); }
+    40.0% { transform: translate(6.47px, -8.90px) rotate(-1.00deg); }
+    45.0% { transform: translate(3.40px, -10.46px) rotate(-0.62deg); }
+    50.0% { transform: translate(0.00px, -11.00px) rotate(-0.00deg); }
+    55.0% { transform: translate(-3.40px, -10.46px) rotate(0.62deg); }
+    60.0% { transform: translate(-6.47px, -8.90px) rotate(1.00deg); }
+    65.0% { transform: translate(-8.90px, -6.47px) rotate(1.00deg); }
+    70.0% { transform: translate(-10.46px, -3.40px) rotate(0.62deg); }
+    75.0% { transform: translate(-11.00px, -0.00px) rotate(0.00deg); }
+    80.0% { transform: translate(-10.46px, 3.40px) rotate(-0.62deg); }
+    85.0% { transform: translate(-8.90px, 6.47px) rotate(-1.00deg); }
+    90.0% { transform: translate(-6.47px, 8.90px) rotate(-1.00deg); }
+    95.0% { transform: translate(-3.40px, 10.46px) rotate(-0.62deg); }
+    100.0% { transform: translate(-0.00px, 11.00px) rotate(-0.00deg); }
 }

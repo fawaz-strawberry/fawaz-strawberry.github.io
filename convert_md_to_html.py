@@ -4,6 +4,7 @@ import yaml
 from PIL import Image
 import random
 import math
+import re
 
 # Directories
 MD_DIR = 'markdown'         # Directory containing Markdown files for projects
@@ -141,7 +142,7 @@ def generate_card(image_src, caption, link=None, is_gallery=False):
         scale_factor = random.uniform(0.5, 0.7)  # Adjusted for better visibility
         max_card_size = 400
     else:
-        scale_factor = random.uniform(0.8, 1.0)
+        scale_factor = random.uniform(0.5, 0.7)
         max_card_size = 400
 
     card_width = int(width * scale_factor)
@@ -233,6 +234,9 @@ def main():
 
         # Convert Markdown content to HTML
         html_content = convert_md_to_html(md_content, title)
+        
+        # Add class="content-image" to images in the HTML content
+        html_content = re.sub(r'<img ', r'<img class="content-image" ', html_content)
 
         # Determine the output HTML file path
         html_file = os.path.join(HTML_DIR, md_file.replace('.md', '.html'))

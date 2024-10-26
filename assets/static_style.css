@@ -50,7 +50,7 @@ body::after {
     opacity: 0.2; /* Adjust opacity for transparency effect */
     animation: moveBackground 60s linear infinite; /* Adjust the duration for desired effect */
     z-index: -2; /* Ensure the background image is behind the gradient */
-}
+} */
 body {
     position: relative; /* Necessary for pseudo-element positioning */
     display: flex;
@@ -290,12 +290,14 @@ p {
     color: rgba(0, 0, 0, 0.85);
 }
 
-/* Adjust gap between cards on smaller screens */
-@media (max-width: 600px) {
-    .main-options {
-        gap: 20px;
-    }
+/* More specific selector */
+.card .card-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    transition: transform 0.2s ease;
 }
+
 .card img {
     position: absolute;
     top: 0;
@@ -313,6 +315,7 @@ p {
     object-fit: cover;
     transition: transform 0.2s ease;
 }
+
 
 .card .caption {
     /* Adjust positioning if necessary */
@@ -543,6 +546,10 @@ p {
         text-align: center;
     }
 
+    .main-options {
+        gap: 19px;
+    }
+
     /* Headings and responsive typography */
     h1 {
         font-size: 4rem; /* For larger screens */
@@ -562,12 +569,19 @@ p {
         padding: 15px;
     }
     
-    img {
+    .content-image {
         height: auto;
-        max-width: 70%; /* Optional: set a max size */
-        display: block;   /* Make the image behave like a block-level element */
-        width: 100%;       /* Set the width as a percentage of the container or screen */
-        margin: .5rem auto; /* Center the image horizontally with auto margin */
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
+    }
+    img:not(.card-image) {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
     }
 
 }
@@ -595,12 +609,27 @@ p {
         padding: 10px;
     }
     
+    .content-image {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
+    }
+
     img {
         max-width: 70%; /* Optional: set a max size */
         height: auto;
         display: block;   /* Make the image behave like a block-level element */
         width: 100%;       /* Set the width as a percentage of the container or screen */
         margin: .5rem auto; /* Center the image horizontally with auto margin */
+    }
+    img:not(.card-image) {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
     }
     footer {
         flex-direction: column;
@@ -633,11 +662,25 @@ p {
         font-size: 30px;
     }
 
+    .content-image {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
+    }
     img {
         display: block;     /* Make the image behave like a block-level element */
         margin: .1rem auto; /* Center the image horizontally with auto margin */
         height: auto;       /* Maintain aspect ratio */
         max-width: 100%;    /* Ensure it doesn't go beyond the screen size */
+    }
+    img:not(.card-image) {
+        height: auto;
+        max-width: 70%;
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
     }
 
     .small-title {

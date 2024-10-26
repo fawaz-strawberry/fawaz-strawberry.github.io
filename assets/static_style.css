@@ -537,15 +537,15 @@ p {
 /* Media Queries for Responsive Design */
 @media (max-width: 50em) { /* Equivalent to ~600px - Mid-size devices */
     p {
-        font-size: 1.2rem;
-        line-height: 1.6;
+        font-size: 1.2rem;  /* Base font size */
+        line-height: 1.6;   /* Improve readability */
         margin-bottom: 1.5rem;
         text-align: center;
     }
 
     /* Headings and responsive typography */
     h1 {
-        font-size: 4rem;
+        font-size: 4rem; /* For larger screens */
         margin-bottom: 2rem;
     }
 
@@ -553,27 +553,26 @@ p {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
     }
-
+    
     .main-menu li a {
         font-size: 60px;
     }
-
+    
     .content {
         padding: 15px;
     }
-
-    /* Updated image styles - target images without 'card-image' class */
-    img:not(.card-image) {
+    
+    img {
         height: auto;
-        max-width: 70%;
-        display: block;
-        width: 100%;
-        margin: 0.5rem auto;
+        max-width: 70%; /* Optional: set a max size */
+        display: block;   /* Make the image behave like a block-level element */
+        width: 100%;       /* Set the width as a percentage of the container or screen */
+        margin: .5rem auto; /* Center the image horizontally with auto margin */
     }
+
 }
 
-/* Repeat for other media queries */
-@media (max-width: 37.5em) {
+@media (max-width: 37.5em) { /* Equivalent to ~600px - Mid-size devices */
     h1 {
         font-size: 3rem;
     }
@@ -587,23 +586,22 @@ p {
         line-height: 1.4;
         text-align: center;
     }
-
+    
     .main-menu li a {
         font-size: 40px;
     }
-
+    
     .content {
         padding: 10px;
     }
-
-    img:not(.card-image) {
+    
+    img {
+        max-width: 70%; /* Optional: set a max size */
         height: auto;
-        max-width: 70%;
-        display: block;
-        width: 100%;
-        margin: 0.5rem auto;
+        display: block;   /* Make the image behave like a block-level element */
+        width: 100%;       /* Set the width as a percentage of the container or screen */
+        margin: .5rem auto; /* Center the image horizontally with auto margin */
     }
-
     footer {
         flex-direction: column;
     }
@@ -617,7 +615,7 @@ p {
     }
 }
 
-@media (max-width: 30em) {
+@media (max-width: 30em) { /* Equivalent to ~480px - Small devices */
     h1 {
         font-size: 2rem;
     }
@@ -631,21 +629,18 @@ p {
         line-height: 1.4;
         text-align: center;
     }
-
     .main-menu li a {
         font-size: 30px;
     }
 
-    img:not(.card-image) {
-        display: block;
-        margin: 0.1rem auto;
-        height: auto;
-        max-width: 100%;
+    img {
+        display: block;     /* Make the image behave like a block-level element */
+        margin: .1rem auto; /* Center the image horizontally with auto margin */
+        height: auto;       /* Maintain aspect ratio */
+        max-width: 100%;    /* Ensure it doesn't go beyond the screen size */
     }
 
     .small-title {
         font-size: 14px;
     }
-}
-
 }

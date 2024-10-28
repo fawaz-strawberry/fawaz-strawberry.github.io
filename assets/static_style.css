@@ -1,6 +1,7 @@
 /* 
  * Main CSS Stylesheet for Fawaz's Portfolio Website
- * Updated to overlay captions over image cards with adjustable font sizes.
+ * Updated to overlay captions over image cards with adjustable font sizes,
+ * and to fix issues with card sizing on small screens.
  */
 
 /* Import Google Fonts */
@@ -388,6 +389,7 @@ p {
 @media (max-width: 56.25em) { /* 900px / 16px */
     .card {
         flex: 1 1 calc(50% - 2.5em); /* Two cards per row */
+        max-width: calc(50% - 2.5em);
     }
 }
 
@@ -415,8 +417,9 @@ p {
         padding: 0.625em; /* 10px / 16px */
     }
 
-    .content-image,
-    img:not(.card-image) {
+    /* Updated selector to target images within .content only */
+    .content .content-image,
+    .content img:not(.card-image) {
         height: auto;
         max-width: 70%;
         display: block;
@@ -426,8 +429,8 @@ p {
 
     .card {
         flex: 1 1 calc(100% - 2.5em); /* One card per row */
-        max-width: none;
-        min-width: auto;
+        max-width: calc(100% - 2.5em);
+        min-width: 15em; /* Set a minimum width */
     }
 
     /* Adjust caption height on small screens */
@@ -468,8 +471,9 @@ p {
         font-size: 30px;
     }
 
-    .content-image,
-    img:not(.card-image) {
+    /* Updated selector to target images within .content only */
+    .content .content-image,
+    .content img:not(.card-image) {
         height: auto;
         max-width: 70%;
         display: block;
@@ -479,6 +483,12 @@ p {
 
     .small-title {
         font-size: 0.875rem; /* 14px / 16px */
+    }
+
+    .card {
+        flex: 1 1 calc(100% - 2.5em);
+        max-width: calc(100% - 2.5em);
+        min-width: 12.5em; /* Approximately 200px */
     }
 
     /* Further adjust caption height */
